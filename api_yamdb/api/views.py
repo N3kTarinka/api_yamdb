@@ -26,6 +26,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     lookup_field = 'slug'
     permission_classes = [IsAdminOrReadOnly]
 
+
 class GenreViewSet(viewsets.ModelViewSet):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
