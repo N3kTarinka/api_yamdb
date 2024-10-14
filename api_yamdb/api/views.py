@@ -11,10 +11,10 @@ from users.models import User
 from rest_framework import status, viewsets, filters
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
-from django_filters.rest_framework import DjangoFilterBackend
+from django_filters.rest_framework import DjangoFilterBackend, CharFilter, FilterSet
 
-from .serializers import CategorySerializer, TitleSerializer, TokenSerializer, SignupSerializer, UserEditSerializer, \
-    UserSerializer, GenreSerializer
+from .serializers import CategorySerializer, TokenSerializer, SignupSerializer, UserEditSerializer, \
+    UserSerializer, GenreSerializer, TitleSerializer, TitleCreateSerializer
 from .permissions import IsAdminOrReadOnly
 
 
@@ -77,12 +77,10 @@ class GenreViewSet(viewsets.ModelViewSet):
         return super().partial_update(request, *args, **kwargs)
 
 
-from django_filters import rest_framework as filters
-from .serializers import TitleSerializer, TitleCreateSerializer, CategorySerializer, GenreSerializer
 
-class TitleFilter(filters.FilterSet):
-    genre = filters.CharFilter(field_name='genre__slug')
-    category = filters.CharFilter(field_name='category__slug')
+class TitleFilter(FilterSet):
+    genre = CharFilter(field_name='genre__slug')
+    category = CharFilter(field_name='category__slug')
 
     class Meta:
         model = Title
@@ -100,6 +98,15 @@ class TitleViewSet(viewsets.ModelViewSet):
             return TitleCreateSerializer
         return TitleSerializer
 
+    def update(self, request, *args, **kwargs):
+        # Block PUT requests by returning a 405 status
+        if request.method == 'PUT':
+            return Response(
+                {'detail': 'Method Not Allowed'},
+                status=status.HTTP_405_METHOD_NOT_ALLOWED
+            )
+        return super().update(request, *args, **kwargs)
+
     def partial_update(self, request, *args, **kwargs):
         if request.user.is_authenticated and request.user.is_admin:
             return super().partial_update(request, *args, **kwargs)
@@ -107,8 +114,6 @@ class TitleViewSet(viewsets.ModelViewSet):
             {'detail': 'Method Not Allowed'},
             status=status.HTTP_405_METHOD_NOT_ALLOWED
         )
-
-
 
 
 class UserViewSet(viewsets.ModelViewSet):
