@@ -77,10 +77,38 @@ class GenreViewSet(viewsets.ModelViewSet):
         return super().partial_update(request, *args, **kwargs)
 
 
+from django_filters import rest_framework as filters
+from .serializers import TitleSerializer, TitleCreateSerializer, CategorySerializer, GenreSerializer
+
+class TitleFilter(filters.FilterSet):
+    genre = filters.CharFilter(field_name='genre__slug')
+    category = filters.CharFilter(field_name='category__slug')
+
+    class Meta:
+        model = Title
+        fields = ['category', 'genre', 'name', 'year']
+
 class TitleViewSet(viewsets.ModelViewSet):
     queryset = Title.objects.all()
-    serializer_class = TitleSerializer
     permission_classes = [IsAdminOrReadOnly]
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = TitleFilter
+    pagination_class = PageNumberPagination
+
+    def get_serializer_class(self):
+        if self.action in ['create', 'partial_update']:
+            return TitleCreateSerializer
+        return TitleSerializer
+
+    def partial_update(self, request, *args, **kwargs):
+        if request.user.is_authenticated and request.user.is_admin:
+            return super().partial_update(request, *args, **kwargs)
+        return Response(
+            {'detail': 'Method Not Allowed'},
+            status=status.HTTP_405_METHOD_NOT_ALLOWED
+        )
+
+
 
 
 class UserViewSet(viewsets.ModelViewSet):
