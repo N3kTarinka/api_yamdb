@@ -19,10 +19,28 @@ from .permissions import IsAdminOrReadOnly
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
-    queryset = Category.objects.all()
+    queryset = Category.objects.all().order_by('id')  # Сортировка для стабильного порядка
     serializer_class = CategorySerializer
     lookup_field = 'slug'
     permission_classes = [IsAdminOrReadOnly]
+    pagination_class = PageNumberPagination
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
+    search_fields = ['name']
+
+    def retrieve(self, request, *args, **kwargs):
+        # Отключаем доступ к retrieve и возвращаем 405
+        return Response(
+            {'detail': 'Method Not Allowed'},
+            status=status.HTTP_405_METHOD_NOT_ALLOWED
+        )
+
+    def partial_update(self, request, *args, **kwargs):
+        # Отключаем PATCH запросы и возвращаем 405
+        return Response(
+            {'detail': 'Method Not Allowed'},
+            status=status.HTTP_405_METHOD_NOT_ALLOWED
+        )
+
 
 
 class GenreViewSet(viewsets.ModelViewSet):
