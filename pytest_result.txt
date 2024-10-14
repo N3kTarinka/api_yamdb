@@ -1,0 +1,1951 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.9.0, pytest-6.2.4, py-1.11.0, pluggy-0.13.1 -- /Users/macbook-pro/Documents/praktikum/api_group/env/bin/python
+django: settings: api_yamdb.settings (from ini)
+rootdir: /Users/macbook-pro/Documents/praktikum/api_group, configfile: pytest.ini, testpaths: tests/
+plugins: pythonpath-0.7.3, django-4.4.0
+collecting ... collected 80 items
+
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_nodata_signup PASSED [  1%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_invalid_data_signup PASSED [  2%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_singup_length_and_simbols_validation[data0-messege0] PASSED [  3%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_singup_length_and_simbols_validation[data1-messege1] PASSED [  5%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_singup_length_and_simbols_validation[data2-messege2] PASSED [  6%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_valid_data_user_signup PASSED [  7%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_valid_data_admin_create_user FAILED [  8%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_admin_create_user_length_and_simbols_validation[data0-messege0] FAILED [ 10%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_admin_create_user_length_and_simbols_validation[data1-messege1] FAILED [ 11%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_admin_create_user_length_and_simbols_validation[data2-messege2] FAILED [ 12%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_admin_create_user_length_and_simbols_validation[data3-messege3] FAILED [ 13%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_admin_create_user_length_and_simbols_validation[data4-messege4] FAILED [ 15%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_obtain_jwt_token_invalid_data PASSED [ 16%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_registration_me_username_restricted PASSED [ 17%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_00_registration_same_email_restricted PASSED [ 18%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_get_new_confirmation_code_for_existing_user FAILED [ 20%]
+tests/test_00_user_registration.py::Test00UserRegistration::test_get_confirmation_code_for_user_created_by_admin FAILED [ 21%]
+tests/test_01_users.py::Test01UserAPI::test_01_users_not_authenticated PASSED [ 22%]
+tests/test_01_users.py::Test01UserAPI::test_02_users_username_not_authenticated PASSED [ 23%]
+tests/test_01_users.py::Test01UserAPI::test_03_users_me_not_authenticated PASSED [ 25%]
+tests/test_01_users.py::Test01UserAPI::test_04_users_get_admin FAILED    [ 26%]
+tests/test_01_users.py::Test01UserAPI::test_04_02_users_get_search FAILED [ 27%]
+tests/test_01_users.py::Test01UserAPI::test_04_01_users_get_admin_only PASSED [ 28%]
+tests/test_01_users.py::Test01UserAPI::test_05_01_users_post_admin_bad_requests FAILED [ 30%]
+tests/test_01_users.py::Test01UserAPI::test_05_02_users_post_admin_user_creation[data0-] FAILED [ 31%]
+tests/test_01_users.py::Test01UserAPI::test_05_02_users_post_admin_user_creation[data1-без указания роли нового пользователя ] FAILED [ 32%]
+tests/test_01_users.py::Test01UserAPI::test_05_03_users_post_response_has_data FAILED [ 33%]
+tests/test_01_users.py::Test01UserAPI::test_05_04_users_post_user_superuser PASSED [ 35%]
+tests/test_01_users.py::Test01UserAPI::test_06_users_username_get_admin FAILED [ 36%]
+tests/test_01_users.py::Test01UserAPI::test_06_users_username_get_not_admin PASSED [ 37%]
+tests/test_01_users.py::Test01UserAPI::test_07_01_users_username_patch_admin FAILED [ 38%]
+tests/test_01_users.py::Test01UserAPI::test_07_02_users_username_patch_moderator PASSED [ 40%]
+tests/test_01_users.py::Test01UserAPI::test_07_03_users_username_patch_user PASSED [ 41%]
+tests/test_01_users.py::Test01UserAPI::test_07_05_users_username_put_not_allowed FAILED [ 42%]
+tests/test_01_users.py::Test01UserAPI::test_08_01_users_username_delete_admin FAILED [ 43%]
+tests/test_01_users.py::Test01UserAPI::test_08_02_users_username_delete_moderator PASSED [ 45%]
+tests/test_01_users.py::Test01UserAPI::test_08_03_users_username_delete_user PASSED [ 46%]
+tests/test_01_users.py::Test01UserAPI::test_08_04_users_username_delete_superuser FAILED [ 47%]
+tests/test_01_users.py::Test01UserAPI::test_09_users_me_get FAILED       [ 48%]
+tests/test_01_users.py::Test01UserAPI::test_09_02_users_me_delete_not_allowed FAILED [ 50%]
+tests/test_01_users.py::Test01UserAPI::test_10_01_users_me_patch FAILED  [ 51%]
+tests/test_01_users.py::Test01UserAPI::test_10_02_users_me_has_field_validation[data0-messege0] FAILED [ 52%]
+tests/test_01_users.py::Test01UserAPI::test_10_02_users_me_has_field_validation[data1-messege1] FAILED [ 53%]
+tests/test_01_users.py::Test01UserAPI::test_10_02_users_me_has_field_validation[data2-messege2] FAILED [ 55%]
+tests/test_01_users.py::Test01UserAPI::test_10_02_users_me_has_field_validation[data3-messege3] FAILED [ 56%]
+tests/test_01_users.py::Test01UserAPI::test_10_02_users_me_has_field_validation[data4-messege4] FAILED [ 57%]
+tests/test_01_users.py::Test01UserAPI::test_10_03_users_me_patch_change_role_not_allowed FAILED [ 58%]
+tests/test_02_category.py::Test02CategoryAPI::test_01_category_not_auth PASSED [ 60%]
+tests/test_02_category.py::Test02CategoryAPI::test_02_category_with_admin_user FAILED [ 61%]
+tests/test_02_category.py::Test02CategoryAPI::test_03_category_fields_validation[data0-massage0] FAILED [ 62%]
+tests/test_02_category.py::Test02CategoryAPI::test_03_category_fields_validation[data1-massage1] FAILED [ 63%]
+tests/test_02_category.py::Test02CategoryAPI::test_03_category_fields_validation[data2-massage2] FAILED [ 65%]
+tests/test_02_category.py::Test02CategoryAPI::test_04_category_delete_admin FAILED [ 66%]
+tests/test_02_category.py::Test02CategoryAPI::test_05_category_check_permission_admin FAILED [ 67%]
+tests/test_03_genre.py::Test03GenreAPI::test_01_genre_not_auth PASSED    [ 68%]
+tests/test_03_genre.py::Test03GenreAPI::test_02_genre FAILED             [ 70%]
+tests/test_03_genre.py::Test03GenreAPI::test_03_category_fields_validation[data0-massage0] FAILED [ 71%]
+tests/test_03_genre.py::Test03GenreAPI::test_03_category_fields_validation[data1-massage1] FAILED [ 72%]
+tests/test_03_genre.py::Test03GenreAPI::test_03_category_fields_validation[data2-massage2] FAILED [ 73%]
+tests/test_03_genre.py::Test03GenreAPI::test_04_genres_delete FAILED     [ 75%]
+tests/test_03_genre.py::Test03GenreAPI::test_05_genres_check_permission FAILED [ 76%]
+tests/test_04_title.py::Test04TitleAPI::test_01_title_not_auth PASSED    [ 77%]
+tests/test_04_title.py::Test04TitleAPI::test_02_title_admin FAILED       [ 78%]
+tests/test_04_title.py::Test04TitleAPI::test_03_titles_detail FAILED     [ 80%]
+tests/test_04_title.py::Test04TitleAPI::test_04_titles_name_length_validation FAILED [ 81%]
+tests/test_04_title.py::Test04TitleAPI::test_05_titles_check_permission FAILED [ 82%]
+tests/test_04_title.py::Test04TitleAPI::test_06_titles_detail_put_not_allowed FAILED [ 83%]
+tests/test_05_review.py::Test05ReviewAPI::test_01_review_not_auth FAILED [ 85%]
+tests/test_05_review.py::Test05ReviewAPI::test_02_review_post FAILED     [ 86%]
+tests/test_05_review.py::Test05ReviewAPI::test_03_review_detail_get FAILED [ 87%]
+tests/test_05_review.py::Test05ReviewAPI::test_04_review_detail_user FAILED [ 88%]
+tests/test_05_review.py::Test05ReviewAPI::test_05_reviews_detail_moderator_and_admin FAILED [ 90%]
+tests/test_05_review.py::Test05ReviewAPI::test_06_reviews_detail_put_not_allowed FAILED [ 91%]
+tests/test_06_comment.py::Test06CommentAPI::test_01_comment_not_auth FAILED [ 92%]
+tests/test_06_comment.py::Test06CommentAPI::test_02_comment FAILED       [ 93%]
+tests/test_06_comment.py::Test06CommentAPI::test_03_comment_detail_get FAILED [ 95%]
+tests/test_06_comment.py::Test06CommentAPI::test_04_comment_detail__user_patch_delete FAILED [ 96%]
+tests/test_06_comment.py::Test06CommentAPI::test_05_comment_detail_admin_and_moderator FAILED [ 97%]
+tests/test_06_comment.py::Test06CommentAPI::test_06_comment_detail_not_auth FAILED [ 98%]
+tests/test_06_comment.py::Test06CommentAPI::test_07_comment_detail_put_not_allowed FAILED [100%]
+
+=================================== FAILURES ===================================
+_________ Test00UserRegistration.test_00_valid_data_admin_create_user __________
+
+self = <tests.test_00_user_registration.Test00UserRegistration object at 0x7fb950a15070>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a47760>
+django_user_model = <class 'users.models.User'>
+
+    def test_00_valid_data_admin_create_user(self,
+                                             admin_client,
+                                             django_user_model):
+        outbox_before_count = len(mail.outbox)
+        valid_data = {
+            'email': 'valid@yamdb.fake',
+            'username': 'valid_username'
+        }
+        response = admin_client.post(
+            self.URL_ADMIN_CREATE_USER, data=valid_data
+        )
+        outbox_after = mail.outbox
+    
+        assert response.status_code != HTTPStatus.NOT_FOUND, (
+            f'Эндпоинт `{self.URL_ADMIN_CREATE_USER}` не найден. Проверьте '
+            'настройки в *urls.py*.'
+        )
+    
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос от имени администратора к эндпоинту '
+            f'`{self.URL_ADMIN_CREATE_USER}` содержит корректные данные - '
+            'должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос от имени администратора к эндпоинту `/api/v1/users/` содержит корректные данные - должен вернуться ответ со статусом 201.
+E       assert 403 == <HTTPStatus.CREATED: 201>
+E         +403
+E         -<HTTPStatus.CREATED: 201>
+
+tests/test_00_user_registration.py:171: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/
+_ Test00UserRegistration.test_00_admin_create_user_length_and_simbols_validation[data0-messege0] _
+
+self = <tests.test_00_user_registration.Test00UserRegistration object at 0x7fb950a775e0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a77670>
+data = {'email': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@yamdb.fake', 'username': 'valid-username'}
+messege = ('Проверьте, что при обработке {request_method}-запроса к `{url}` проверяется длина поля `email`: его содержимое не должно быть длиннее 254 символа.',)
+django_user_model = <class 'users.models.User'>
+
+    @pytest.mark.parametrize(
+        'data,messege', invalid_data_for_user_patch_and_creation
+    )
+    def test_00_admin_create_user_length_and_simbols_validation(
+            self, admin_client, data, messege, django_user_model
+    ):
+        request_method = 'POST'
+        users_count = django_user_model.objects.count()
+        response = admin_client.post(self.URL_ADMIN_CREATE_USER, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            messege[0].format(
+                url=self.URL_ADMIN_CREATE_USER, request_method=request_method
+            )
+        )
+E       AssertionError: Проверьте, что при обработке POST-запроса к `/api/v1/users/` проверяется длина поля `email`: его содержимое не должно быть длиннее 254 символа.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_00_user_registration.py:211: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/
+_ Test00UserRegistration.test_00_admin_create_user_length_and_simbols_validation[data1-messege1] _
+
+self = <tests.test_00_user_registration.Test00UserRegistration object at 0x7fb950a77250>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a734c0>
+data = {'email': 'valid-email@yamdb.fake', 'username': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
+messege = ('Проверьте, что при обработке {request_method}-запроса к `{url}` проверяется длина поля `username`: его содержимое не должно быть длиннее 150 символов.',)
+django_user_model = <class 'users.models.User'>
+
+    @pytest.mark.parametrize(
+        'data,messege', invalid_data_for_user_patch_and_creation
+    )
+    def test_00_admin_create_user_length_and_simbols_validation(
+            self, admin_client, data, messege, django_user_model
+    ):
+        request_method = 'POST'
+        users_count = django_user_model.objects.count()
+        response = admin_client.post(self.URL_ADMIN_CREATE_USER, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            messege[0].format(
+                url=self.URL_ADMIN_CREATE_USER, request_method=request_method
+            )
+        )
+E       AssertionError: Проверьте, что при обработке POST-запроса к `/api/v1/users/` проверяется длина поля `username`: его содержимое не должно быть длиннее 150 символов.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_00_user_registration.py:211: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/
+_ Test00UserRegistration.test_00_admin_create_user_length_and_simbols_validation[data2-messege2] _
+
+self = <tests.test_00_user_registration.Test00UserRegistration object at 0x7fb94153c370>
+admin_client = <rest_framework.test.APIClient object at 0x7fb94156e310>
+data = {'email': 'valid-email@yamdb.fake', 'username': '|-|aTa|_|_|a'}
+messege = ('Проверьте, что при обработке {request_method}-запроса к `{url}` содержание поля `username` проверяется на соответствие паттерну, указанному в спецификации: ^[\\w.@+-]+\\Z',)
+django_user_model = <class 'users.models.User'>
+
+    @pytest.mark.parametrize(
+        'data,messege', invalid_data_for_user_patch_and_creation
+    )
+    def test_00_admin_create_user_length_and_simbols_validation(
+            self, admin_client, data, messege, django_user_model
+    ):
+        request_method = 'POST'
+        users_count = django_user_model.objects.count()
+        response = admin_client.post(self.URL_ADMIN_CREATE_USER, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            messege[0].format(
+                url=self.URL_ADMIN_CREATE_USER, request_method=request_method
+            )
+        )
+E       AssertionError: Проверьте, что при обработке POST-запроса к `/api/v1/users/` содержание поля `username` проверяется на соответствие паттерну, указанному в спецификации: ^[\w.@+-]+\Z
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_00_user_registration.py:211: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/
+_ Test00UserRegistration.test_00_admin_create_user_length_and_simbols_validation[data3-messege3] _
+
+self = <tests.test_00_user_registration.Test00UserRegistration object at 0x7fb9304ba6d0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a47fa0>
+data = {'email': 'valid-email@yamdb.fake', 'first_name': 'toolonggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', 'username': 'validname'}
+messege = ('Проверьте, что при обработке POST-запроса к `{url}` проверяется длина поля `first_name`: его содержимое не должно быть длиннее 150 символов.',)
+django_user_model = <class 'users.models.User'>
+
+    @pytest.mark.parametrize(
+        'data,messege', invalid_data_for_user_patch_and_creation
+    )
+    def test_00_admin_create_user_length_and_simbols_validation(
+            self, admin_client, data, messege, django_user_model
+    ):
+        request_method = 'POST'
+        users_count = django_user_model.objects.count()
+        response = admin_client.post(self.URL_ADMIN_CREATE_USER, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            messege[0].format(
+                url=self.URL_ADMIN_CREATE_USER, request_method=request_method
+            )
+        )
+E       AssertionError: Проверьте, что при обработке POST-запроса к `/api/v1/users/` проверяется длина поля `first_name`: его содержимое не должно быть длиннее 150 символов.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_00_user_registration.py:211: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/
+_ Test00UserRegistration.test_00_admin_create_user_length_and_simbols_validation[data4-messege4] _
+
+self = <tests.test_00_user_registration.Test00UserRegistration object at 0x7fb9509b0100>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a737f0>
+data = {'email': 'valid-email@yamdb.fake', 'last_name': 'toolonggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', 'username': 'validname'}
+messege = ('Проверьте, что при обработке POST-запроса к `{url}` проверяется длина поля `last_name`: его содержимое не должно быть длиннее 150 символов.',)
+django_user_model = <class 'users.models.User'>
+
+    @pytest.mark.parametrize(
+        'data,messege', invalid_data_for_user_patch_and_creation
+    )
+    def test_00_admin_create_user_length_and_simbols_validation(
+            self, admin_client, data, messege, django_user_model
+    ):
+        request_method = 'POST'
+        users_count = django_user_model.objects.count()
+        response = admin_client.post(self.URL_ADMIN_CREATE_USER, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            messege[0].format(
+                url=self.URL_ADMIN_CREATE_USER, request_method=request_method
+            )
+        )
+E       AssertionError: Проверьте, что при обработке POST-запроса к `/api/v1/users/` проверяется длина поля `last_name`: его содержимое не должно быть длиннее 150 символов.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_00_user_registration.py:211: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/
+___ Test00UserRegistration.test_get_new_confirmation_code_for_existing_user ____
+
+self = <tests.test_00_user_registration.Test00UserRegistration object at 0x7fb941561a60>
+client = <django.test.client.Client object at 0x7fb950a7fa30>
+
+    def test_get_new_confirmation_code_for_existing_user(self, client):
+        valid_data = {
+            'email': 'test_email@yamdb.fake',
+            'username': 'valid_username_1'
+        }
+        response = client.post(self.URL_SIGNUP, data=valid_data)
+        assert response.status_code == HTTPStatus.OK, (
+            'Проверьте, что POST-запрос с корректными данными, отправленный '
+            f'на эндпоинт `{self.URL_SIGNUP}`, возвращает ответ со статусом '
+            '200.'
+        )
+    
+        response = client.post(self.URL_SIGNUP, data=valid_data)
+>       assert response.status_code == HTTPStatus.OK, (
+            f'Проверьте, что повторный POST-запрос к `{self.URL_SIGNUP}` с '
+            'данными зарегистрированного пользователя возвращает ответ со '
+            'статусом 200.'
+        )
+E       AssertionError: Проверьте, что повторный POST-запрос к `/api/v1/auth/signup/` с данными зарегистрированного пользователя возвращает ответ со статусом 200.
+E       assert 400 == <HTTPStatus.OK: 200>
+E         +400
+E         -<HTTPStatus.OK: 200>
+
+tests/test_00_user_registration.py:351: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Bad Request: /api/v1/auth/signup/
+_ Test00UserRegistration.test_get_confirmation_code_for_user_created_by_admin __
+
+self = <tests.test_00_user_registration.Test00UserRegistration object at 0x7fb94156cc10>
+admin_client = <rest_framework.test.APIClient object at 0x7fb941573700>
+client = <django.test.client.Client object at 0x7fb94155b7f0>
+django_user_model = <class 'users.models.User'>
+
+    def test_get_confirmation_code_for_user_created_by_admin(
+            self, admin_client, client, django_user_model
+    ):
+        user_cnt = django_user_model.objects.count()
+        valid_data = {
+            'email': 'test_email@yamdb.fake',
+            'username': 'valid_username_1'
+        }
+        admin_client.post(self.URL_ADMIN_CREATE_USER, data=valid_data)
+>       assert (user_cnt + 1) == django_user_model.objects.count(), (
+            'Если POST-запрос администратора на эндпоинт '
+            f'`{self.URL_ADMIN_CREATE_USER}` содержит корректные данные - '
+            'должен быть создан новый пользователь.'
+        )
+E       AssertionError: Если POST-запрос администратора на эндпоинт `/api/v1/users/` содержит корректные данные - должен быть создан новый пользователь.
+E       assert 2 == 1
+E         +2
+E         -1
+
+tests/test_00_user_registration.py:366: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/
+____________________ Test01UserAPI.test_04_users_get_admin _____________________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb950a92e50>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a01ac0>
+admin = <User: TestAdmin>
+
+    def test_04_users_get_admin(self, admin_client, admin):
+        response = admin_client.get(self.USERS_URL)
+        assert response.status_code != HTTPStatus.NOT_FOUND, (
+            f'Эндпоинт `{self.USERS_URL}` не найден. Проверьте настройки в '
+            '*urls.py*.'
+        )
+>       assert response.status_code == HTTPStatus.OK, (
+            f'Проверьте, что GET-запрос к `{self.USERS_URL}` с токеном '
+            'авторизации возвращает ответ со статусом 200.'
+        )
+E       AssertionError: Проверьте, что GET-запрос к `/api/v1/users/` с токеном авторизации возвращает ответ со статусом 200.
+E       assert 403 == <HTTPStatus.OK: 200>
+E         +403
+E         -<HTTPStatus.OK: 200>
+
+tests/test_01_users.py:84: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/
+__________________ Test01UserAPI.test_04_02_users_get_search ___________________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb950ab50d0>
+user = <User: TestUser>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950aaf4f0>
+admin = <User: TestAdmin>, django_user_model = <class 'users.models.User'>
+
+    def test_04_02_users_get_search(self, user, admin_client,
+                                    admin, django_user_model):
+        search_url = f'{self.USERS_URL}?search={admin.username}'
+        response = admin_client.get(search_url)
+        assert response.status_code != HTTPStatus.NOT_FOUND, (
+            f'Эндпоинт `{self.USERS_URL}'
+            '?search={username}` не найден. Проверьте настройки в *urls.py*.'
+        )
+        reponse_json = response.json()
+>       assert ('results' in reponse_json
+                and isinstance(reponse_json.get('results'), list)), (
+            f'Проверьте, что GET-запрос к `{self.USERS_URL}'
+            '?search={username}` возвращает результаты поиска по значению '
+            'ключа `results` в виде списка.'
+        )
+E       AssertionError: Проверьте, что GET-запрос к `/api/v1/users/?search={username}` возвращает результаты поиска по значению ключа `results` в виде списка.
+E       assert ('results' in {'detail': 'У вас недостаточно прав для выполнения данного действия.'})
+
+tests/test_01_users.py:108: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/
+____________ Test01UserAPI.test_05_01_users_post_admin_bad_requests ____________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb950ab6790>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a7fc40>
+admin = <User: TestAdmin>
+
+    def test_05_01_users_post_admin_bad_requests(self, admin_client, admin):
+        empty_data = {}
+        response = admin_client.post(self.USERS_URL, data=empty_data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            f'Если POST-запрос администратора к `{self.USERS_URL}` '
+            'не содержит необходимых данных - должен вернуться ответ со '
+            'статусом 400.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/users/` не содержит необходимых данных - должен вернуться ответ со статусом 400.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_01_users.py:153: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/
+_______ Test01UserAPI.test_05_02_users_post_admin_user_creation[data0-] ________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb950aead60>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950ab5760>
+data = {'email': 'testuser2@yamdb.fake', 'role': 'user', 'username': 'TestUser_2'}
+msg_modifier = '', django_user_model = <class 'users.models.User'>
+
+    @pytest.mark.parametrize('data,msg_modifier', VALID_DATA_FOR_USER_CREATION)
+    def test_05_02_users_post_admin_user_creation(self, admin_client,
+                                                  data, msg_modifier,
+                                                  django_user_model):
+        response = admin_client.post(self.USERS_URL, data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            f'Если POST-запрос администратора к `{self.USERS_URL}` содержит '
+            f'корректные данные {msg_modifier}- должен вернуться ответ со '
+            'статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/users/` содержит корректные данные - должен вернуться ответ со статусом 201.
+E       assert 403 == <HTTPStatus.CREATED: 201>
+E         +403
+E         -<HTTPStatus.CREATED: 201>
+
+tests/test_01_users.py:208: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/
+_ Test01UserAPI.test_05_02_users_post_admin_user_creation[data1-без указания роли нового пользователя ] _
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb9509f5a30>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a928b0>
+data = {'email': 'testuser3@yamdb.fake', 'username': 'TestUser_3'}
+msg_modifier = 'без указания роли нового пользователя '
+django_user_model = <class 'users.models.User'>
+
+    @pytest.mark.parametrize('data,msg_modifier', VALID_DATA_FOR_USER_CREATION)
+    def test_05_02_users_post_admin_user_creation(self, admin_client,
+                                                  data, msg_modifier,
+                                                  django_user_model):
+        response = admin_client.post(self.USERS_URL, data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            f'Если POST-запрос администратора к `{self.USERS_URL}` содержит '
+            f'корректные данные {msg_modifier}- должен вернуться ответ со '
+            'статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/users/` содержит корректные данные без указания роли нового пользователя - должен вернуться ответ со статусом 201.
+E       assert 403 == <HTTPStatus.CREATED: 201>
+E         +403
+E         -<HTTPStatus.CREATED: 201>
+
+tests/test_01_users.py:208: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/
+____________ Test01UserAPI.test_05_03_users_post_response_has_data _____________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb950a929d0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb94155b7c0>
+
+    def test_05_03_users_post_response_has_data(self, admin_client):
+        data = {
+            'first_name': 'First Name',
+            'last_name': 'Last Name',
+            'username': 'test_username',
+            'bio': 'test bio',
+            'role': 'moderator',
+            'email': 'testmoder2@yamdb.fake'
+        }
+        response = admin_client.post(self.USERS_URL, data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            f'Если POST-запрос администратора к `{self.USERS_URL}` '
+            'содержит корректные данные - должен вернуться ответ со статусом '
+            '201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/users/` содержит корректные данные - должен вернуться ответ со статусом 201.
+E       assert 403 == <HTTPStatus.CREATED: 201>
+E         +403
+E         -<HTTPStatus.CREATED: 201>
+
+tests/test_01_users.py:236: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/
+________________ Test01UserAPI.test_06_users_username_get_admin ________________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb950b287c0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950af4f70>
+moderator = <User: TestModerator>
+
+    def test_06_users_username_get_admin(self, admin_client, moderator):
+        response = admin_client.get(f'{self.USERS_URL}{moderator.username}/')
+        assert response.status_code != HTTPStatus.NOT_FOUND, (
+            f'Эндпоинт `{self.USERS_URL}'
+            '{username}/` не найден. Проверьте настройки в *urls.py*.'
+        )
+>       assert response.status_code == HTTPStatus.OK, (
+            f'Проверьте, что GET-запрос администратора к `{self.USERS_URL}'
+            '{username}/` возвращает ответ со статусом 200.'
+        )
+E       AssertionError: Проверьте, что GET-запрос администратора к `/api/v1/users/{username}/` возвращает ответ со статусом 200.
+E       assert 403 == <HTTPStatus.OK: 200>
+E         +403
+E         -<HTTPStatus.OK: 200>
+
+tests/test_01_users.py:283: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/TestModerator/
+_____________ Test01UserAPI.test_07_01_users_username_patch_admin ______________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb950af4160>
+user = <User: TestUser>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950b1afd0>
+django_user_model = <class 'users.models.User'>
+
+    def test_07_01_users_username_patch_admin(self, user, admin_client,
+                                              django_user_model):
+        data = {
+            'first_name': 'Admin',
+            'last_name': 'Test',
+            'bio': 'description'
+        }
+        response = admin_client.patch(
+            f'{self.USERS_URL}{user.username}/', data=data
+        )
+>       assert response.status_code == HTTPStatus.OK, (
+            'Если PATCH-запрос администратора, отправленный к '
+            f'`{self.USERS_URL}'
+            '{username}/`, содержит корректные данные - должен вернуться '
+            'ответ со статусом 200.'
+        )
+E       AssertionError: Если PATCH-запрос администратора, отправленный к `/api/v1/users/{username}/`, содержит корректные данные - должен вернуться ответ со статусом 200.
+E       assert 403 == <HTTPStatus.OK: 200>
+E         +403
+E         -<HTTPStatus.OK: 200>
+
+tests/test_01_users.py:325: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/TestUser/
+___________ Test01UserAPI.test_07_05_users_username_put_not_allowed ____________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb92009c550>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950b29cd0>
+user = <User: TestUser>
+
+    def test_07_05_users_username_put_not_allowed(self, admin_client, user):
+        response = admin_client.put(
+            f'{self.USERS_URL}{user.username}/', data=self.PATCH_DATA
+        )
+>       assert response.status_code == HTTPStatus.METHOD_NOT_ALLOWED, (
+            f'Проверьте, что PUT-запрос к `{self.USERS_URL}'
+            '{username}/` не предусмотрен и возвращает статус 405.'
+        )
+E       AssertionError: Проверьте, что PUT-запрос к `/api/v1/users/{username}/` не предусмотрен и возвращает статус 405.
+E       assert 403 == <HTTPStatus.METHOD_NOT_ALLOWED: 405>
+E         +403
+E         -<HTTPStatus.METHOD_NOT_ALLOWED: 405>
+
+tests/test_01_users.py:412: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/TestUser/
+_____________ Test01UserAPI.test_08_01_users_username_delete_admin _____________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb950b2b7c0>
+user = <User: TestUser>
+admin_client = <rest_framework.test.APIClient object at 0x7fb9200aae50>
+django_user_model = <class 'users.models.User'>
+
+    def test_08_01_users_username_delete_admin(self, user, admin_client,
+                                               django_user_model):
+        users_cnt = django_user_model.objects.count()
+        response = admin_client.delete(f'{self.USERS_URL}{user.username}/')
+>       assert response.status_code == HTTPStatus.NO_CONTENT, (
+            f'Проверьте, что DELETE-запрос администратора к `{self.USERS_URL}'
+            '{username}/` возвращает ответ со статусом 204.'
+        )
+E       AssertionError: Проверьте, что DELETE-запрос администратора к `/api/v1/users/{username}/` возвращает ответ со статусом 204.
+E       assert 403 == <HTTPStatus.NO_CONTENT: 204>
+E         +403
+E         -<HTTPStatus.NO_CONTENT: 204>
+
+tests/test_01_users.py:421: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/TestUser/
+___________ Test01UserAPI.test_08_04_users_username_delete_superuser ___________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb950a0a400>
+user_superuser_client = <rest_framework.test.APIClient object at 0x7fb92008c880>
+user = <User: TestUser>, django_user_model = <class 'users.models.User'>
+
+    def test_08_04_users_username_delete_superuser(self, user_superuser_client,
+                                                   user, django_user_model):
+        users_cnt = django_user_model.objects.count()
+        response = user_superuser_client.delete(
+            f'{self.USERS_URL}{user.username}/'
+        )
+>       assert response.status_code == HTTPStatus.NO_CONTENT, (
+            'Проверьте, что DELETE-запрос суперпользователя к '
+            f'`{self.USERS_URL}'
+            '{username}/` возвращает ответ со статусом 204.'
+        )
+E       AssertionError: Проверьте, что DELETE-запрос суперпользователя к `/api/v1/users/{username}/` возвращает ответ со статусом 204.
+E       assert 404 == <HTTPStatus.NO_CONTENT: 204>
+E         +404
+E         -<HTTPStatus.NO_CONTENT: 204>
+
+tests/test_01_users.py:464: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Not Found: /api/v1/users/TestUser/
+______________________ Test01UserAPI.test_09_users_me_get ______________________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb92008c250>
+user_client = <rest_framework.test.APIClient object at 0x7fb9303f7c40>
+user = <User: TestUser>
+
+    def test_09_users_me_get(self, user_client, user):
+        response = user_client.get(f'{self.USERS_ME_URL}')
+>       assert response.status_code == HTTPStatus.OK, (
+            'Проверьте, что GET-запрос обычного пользователя к '
+            f'`{self.USERS_ME_URL}` возвращает ответ со статусом 200.'
+        )
+E       AssertionError: Проверьте, что GET-запрос обычного пользователя к `/api/v1/users/me/` возвращает ответ со статусом 200.
+E       assert 403 == <HTTPStatus.OK: 200>
+E         +403
+E         -<HTTPStatus.OK: 200>
+
+tests/test_01_users.py:477: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/me/
+_____________ Test01UserAPI.test_09_02_users_me_delete_not_allowed _____________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb950b1c100>
+user_client = <rest_framework.test.APIClient object at 0x7fb92009ca60>
+user = <User: TestUser>, django_user_model = <class 'users.models.User'>
+
+    def test_09_02_users_me_delete_not_allowed(self, user_client, user,
+                                               django_user_model):
+        response = user_client.delete(f'{self.USERS_ME_URL}')
+>       assert response.status_code == HTTPStatus.METHOD_NOT_ALLOWED, (
+            f'Проверьте, что DELETE-запрос к `{self.USERS_ME_URL}` возвращает '
+            'ответ со статусом 405.'
+        )
+E       AssertionError: Проверьте, что DELETE-запрос к `/api/v1/users/me/` возвращает ответ со статусом 405.
+E       assert 403 == <HTTPStatus.METHOD_NOT_ALLOWED: 405>
+E         +403
+E         -<HTTPStatus.METHOD_NOT_ALLOWED: 405>
+
+tests/test_01_users.py:495: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/me/
+___________________ Test01UserAPI.test_10_01_users_me_patch ____________________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb92009c4f0>
+django_user_model = <class 'users.models.User'>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950b1cbb0>
+admin = <User: TestAdmin>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb9304c1b20>
+moderator = <User: TestModerator>
+user_client = <rest_framework.test.APIClient object at 0x7fb9304c1f40>
+user = <User: TestAdmin>
+
+    def test_10_01_users_me_patch(self, django_user_model, admin_client,
+                                  admin, moderator_client, moderator,
+                                  user_client, user):
+        data = {'bio': 'description'}
+    
+        for client, user in (
+                (admin_client, admin),
+                (moderator_client, moderator),
+                (user_client, user)
+        ):
+            response = client.patch(f'{self.USERS_ME_URL}', data=data)
+>           assert response.status_code == HTTPStatus.OK, (
+                'Проверьте, что PATCH-запрос к '
+                f'`{self.USERS_ME_URL}` доступен пользователям всех '
+                'ролей и возвращает ответ со статусом 200.'
+            )
+E           AssertionError: Проверьте, что PATCH-запрос к `/api/v1/users/me/` доступен пользователям всех ролей и возвращает ответ со статусом 200.
+E           assert 403 == <HTTPStatus.OK: 200>
+E             +403
+E             -<HTTPStatus.OK: 200>
+
+tests/test_01_users.py:518: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/me/
+____ Test01UserAPI.test_10_02_users_me_has_field_validation[data0-messege0] ____
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb9415736a0>
+user_client = <rest_framework.test.APIClient object at 0x7fb92008ce50>
+data = {'email': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@yamdb.fake', 'username': 'valid-username'}
+messege = ('Проверьте, что при обработке {request_method}-запроса к `{url}` проверяется длина поля `email`: его содержимое не должно быть длиннее 254 символа.',)
+
+    @pytest.mark.parametrize(
+        'data,messege', invalid_data_for_user_patch_and_creation
+    )
+    def test_10_02_users_me_has_field_validation(self, user_client, data,
+                                                 messege):
+        request_method = 'PATCH'
+        response = user_client.patch(self.USERS_ME_URL, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            messege[0].format(
+                url=self.USERS_ME_URL,
+                request_method=request_method
+            )
+        )
+E       AssertionError: Проверьте, что при обработке PATCH-запроса к `/api/v1/users/me/` проверяется длина поля `email`: его содержимое не должно быть длиннее 254 символа.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_01_users.py:538: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/me/
+____ Test01UserAPI.test_10_02_users_me_has_field_validation[data1-messege1] ____
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb930478250>
+user_client = <rest_framework.test.APIClient object at 0x7fb950b29b50>
+data = {'email': 'valid-email@yamdb.fake', 'username': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}
+messege = ('Проверьте, что при обработке {request_method}-запроса к `{url}` проверяется длина поля `username`: его содержимое не должно быть длиннее 150 символов.',)
+
+    @pytest.mark.parametrize(
+        'data,messege', invalid_data_for_user_patch_and_creation
+    )
+    def test_10_02_users_me_has_field_validation(self, user_client, data,
+                                                 messege):
+        request_method = 'PATCH'
+        response = user_client.patch(self.USERS_ME_URL, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            messege[0].format(
+                url=self.USERS_ME_URL,
+                request_method=request_method
+            )
+        )
+E       AssertionError: Проверьте, что при обработке PATCH-запроса к `/api/v1/users/me/` проверяется длина поля `username`: его содержимое не должно быть длиннее 150 символов.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_01_users.py:538: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/me/
+____ Test01UserAPI.test_10_02_users_me_has_field_validation[data2-messege2] ____
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb950b01190>
+user_client = <rest_framework.test.APIClient object at 0x7fb950b1ad60>
+data = {'email': 'valid-email@yamdb.fake', 'username': '|-|aTa|_|_|a'}
+messege = ('Проверьте, что при обработке {request_method}-запроса к `{url}` содержание поля `username` проверяется на соответствие паттерну, указанному в спецификации: ^[\\w.@+-]+\\Z',)
+
+    @pytest.mark.parametrize(
+        'data,messege', invalid_data_for_user_patch_and_creation
+    )
+    def test_10_02_users_me_has_field_validation(self, user_client, data,
+                                                 messege):
+        request_method = 'PATCH'
+        response = user_client.patch(self.USERS_ME_URL, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            messege[0].format(
+                url=self.USERS_ME_URL,
+                request_method=request_method
+            )
+        )
+E       AssertionError: Проверьте, что при обработке PATCH-запроса к `/api/v1/users/me/` содержание поля `username` проверяется на соответствие паттерну, указанному в спецификации: ^[\w.@+-]+\Z
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_01_users.py:538: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/me/
+____ Test01UserAPI.test_10_02_users_me_has_field_validation[data3-messege3] ____
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb950b1aa90>
+user_client = <rest_framework.test.APIClient object at 0x7fb950b08c10>
+data = {'email': 'valid-email@yamdb.fake', 'first_name': 'toolonggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', 'username': 'validname'}
+messege = ('Проверьте, что при обработке POST-запроса к `{url}` проверяется длина поля `first_name`: его содержимое не должно быть длиннее 150 символов.',)
+
+    @pytest.mark.parametrize(
+        'data,messege', invalid_data_for_user_patch_and_creation
+    )
+    def test_10_02_users_me_has_field_validation(self, user_client, data,
+                                                 messege):
+        request_method = 'PATCH'
+        response = user_client.patch(self.USERS_ME_URL, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            messege[0].format(
+                url=self.USERS_ME_URL,
+                request_method=request_method
+            )
+        )
+E       AssertionError: Проверьте, что при обработке POST-запроса к `/api/v1/users/me/` проверяется длина поля `first_name`: его содержимое не должно быть длиннее 150 символов.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_01_users.py:538: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/me/
+____ Test01UserAPI.test_10_02_users_me_has_field_validation[data4-messege4] ____
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb950b01970>
+user_client = <rest_framework.test.APIClient object at 0x7fb950b083d0>
+data = {'email': 'valid-email@yamdb.fake', 'last_name': 'toolonggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', 'username': 'validname'}
+messege = ('Проверьте, что при обработке POST-запроса к `{url}` проверяется длина поля `last_name`: его содержимое не должно быть длиннее 150 символов.',)
+
+    @pytest.mark.parametrize(
+        'data,messege', invalid_data_for_user_patch_and_creation
+    )
+    def test_10_02_users_me_has_field_validation(self, user_client, data,
+                                                 messege):
+        request_method = 'PATCH'
+        response = user_client.patch(self.USERS_ME_URL, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            messege[0].format(
+                url=self.USERS_ME_URL,
+                request_method=request_method
+            )
+        )
+E       AssertionError: Проверьте, что при обработке POST-запроса к `/api/v1/users/me/` проверяется длина поля `last_name`: его содержимое не должно быть длиннее 150 символов.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_01_users.py:538: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/me/
+_______ Test01UserAPI.test_10_03_users_me_patch_change_role_not_allowed ________
+
+self = <tests.test_01_users.Test01UserAPI object at 0x7fb9509ced30>
+user_client = <rest_framework.test.APIClient object at 0x7fb930523f40>
+user = <User: TestUser>, django_user_model = <class 'users.models.User'>
+
+    def test_10_03_users_me_patch_change_role_not_allowed(self,
+                                                          user_client,
+                                                          user,
+                                                          django_user_model):
+        response = user_client.patch(
+            f'{self.USERS_ME_URL}', data=self.PATCH_DATA
+        )
+>       assert response.status_code == HTTPStatus.OK, (
+            'Проверьте, что PATCH-запрос пользователя с ролью `user` к '
+            f'`{self.USERS_ME_URL}` возвращает ответ со статусом 200.'
+        )
+E       AssertionError: Проверьте, что PATCH-запрос пользователя с ролью `user` к `/api/v1/users/me/` возвращает ответ со статусом 200.
+E       assert 403 == <HTTPStatus.OK: 200>
+E         +403
+E         -<HTTPStatus.OK: 200>
+
+tests/test_01_users.py:552: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/users/me/
+______________ Test02CategoryAPI.test_02_category_with_admin_user ______________
+
+self = <tests.test_02_category.Test02CategoryAPI object at 0x7fb950b1a430>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a99160>
+
+    def test_02_category_with_admin_user(self, admin_client):
+        categories_count = 0
+    
+        data = {}
+        response = admin_client.post(self.CATEGORY_URL, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            'Если POST-запрос администратора, отправленный к '
+            f'`{self.CATEGORY_URL}`, содержит некорректные данные - должен '
+            'вернуться ответ со статусом 400.'
+        )
+E       AssertionError: Если POST-запрос администратора, отправленный к `/api/v1/categories/`, содержит некорректные данные - должен вернуться ответ со статусом 400.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_02_category.py:33: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/categories/
+_____ Test02CategoryAPI.test_03_category_fields_validation[data0-massage0] _____
+
+self = <tests.test_02_category.Test02CategoryAPI object at 0x7fb941570ca0>
+data = {'name': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasimbols', 'slug': 'longname'}
+massage = ('Проверьте, что при обработке POST-запроса к `{url}` проверяется длина поля `name`: название произведения не должно быть длиннее 256 символов.',)
+admin_client = <rest_framework.test.APIClient object at 0x7fb9509e7940>
+
+    @pytest.mark.parametrize('data,massage', check_name_and_slug_patterns)
+    def test_03_category_fields_validation(self, data, massage, admin_client):
+        response = admin_client.post(self.CATEGORY_URL, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            massage[0].format(url=self.CATEGORY_URL)
+        )
+E       AssertionError: Проверьте, что при обработке POST-запроса к `/api/v1/categories/` проверяется длина поля `name`: название произведения не должно быть длиннее 256 символов.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_02_category.py:95: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/categories/
+_____ Test02CategoryAPI.test_03_category_fields_validation[data1-massage1] _____
+
+self = <tests.test_02_category.Test02CategoryAPI object at 0x7fb950a772e0>
+data = {'name': 'longslug', 'slug': 'llllllllllllllllllllllllllllllllllllllllllllllllllsimbols'}
+massage = ('Проверьте, что при обработке POST-запроса к `{url}` проверяется длина поля `slug`: его содержимое не должно быть длиннее 50 символов.',)
+admin_client = <rest_framework.test.APIClient object at 0x7fb9509b0460>
+
+    @pytest.mark.parametrize('data,massage', check_name_and_slug_patterns)
+    def test_03_category_fields_validation(self, data, massage, admin_client):
+        response = admin_client.post(self.CATEGORY_URL, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            massage[0].format(url=self.CATEGORY_URL)
+        )
+E       AssertionError: Проверьте, что при обработке POST-запроса к `/api/v1/categories/` проверяется длина поля `slug`: его содержимое не должно быть длиннее 50 символов.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_02_category.py:95: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/categories/
+_____ Test02CategoryAPI.test_03_category_fields_validation[data2-massage2] _____
+
+self = <tests.test_02_category.Test02CategoryAPI object at 0x7fb950a47bb0>
+data = {'name': 'brokenslug', 'slug': ':-)'}
+massage = ('Проверьте, что при обработке POST-запроса к `{url}` содержание поля `slug` проверяется на соответствие паттерну, указанному в спецификации: ^[-a-zA-Z0-9_]+$',)
+admin_client = <rest_framework.test.APIClient object at 0x7fb94156c550>
+
+    @pytest.mark.parametrize('data,massage', check_name_and_slug_patterns)
+    def test_03_category_fields_validation(self, data, massage, admin_client):
+        response = admin_client.post(self.CATEGORY_URL, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            massage[0].format(url=self.CATEGORY_URL)
+        )
+E       AssertionError: Проверьте, что при обработке POST-запроса к `/api/v1/categories/` содержание поля `slug` проверяется на соответствие паттерну, указанному в спецификации: ^[-a-zA-Z0-9_]+$
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_02_category.py:95: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/categories/
+_______________ Test02CategoryAPI.test_04_category_delete_admin ________________
+
+self = <tests.test_02_category.Test02CategoryAPI object at 0x7fb94153c730>
+admin_client = <rest_framework.test.APIClient object at 0x7fb9509df760>
+
+    def test_04_category_delete_admin(self, admin_client):
+>       category_1, category_2 = create_categories(admin_client)
+
+tests/test_02_category.py:100: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb9509df760>
+
+    def create_categories(admin_client):
+        data1 = {
+            'name': 'Фильм',
+            'slug': 'films'
+        }
+        response = admin_client.post('/api/v1/categories/', data=data1)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/categories/` '
+            'содержит корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/categories/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:186: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/categories/
+__________ Test02CategoryAPI.test_05_category_check_permission_admin ___________
+
+self = <tests.test_02_category.Test02CategoryAPI object at 0x7fb9304dfcd0>
+client = <django.test.client.Client object at 0x7fb9304720d0>
+user_client = <rest_framework.test.APIClient object at 0x7fb950a01f40>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb950a013a0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a01f10>
+
+    def test_05_category_check_permission_admin(self, client,
+                                                user_client,
+                                                moderator_client,
+                                                admin_client):
+>       categories = create_categories(admin_client)
+
+tests/test_02_category.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a01f10>
+
+    def create_categories(admin_client):
+        data1 = {
+            'name': 'Фильм',
+            'slug': 'films'
+        }
+        response = admin_client.post('/api/v1/categories/', data=data1)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/categories/` '
+            'содержит корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/categories/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:186: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/categories/
+_________________________ Test03GenreAPI.test_02_genre _________________________
+
+self = <tests.test_03_genre.Test03GenreAPI object at 0x7fb950a019d0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb9304f2610>
+client = <django.test.client.Client object at 0x7fb9304f22e0>
+
+    def test_02_genre(self, admin_client, client):
+        genres_count = 0
+    
+        data = {}
+        response = admin_client.post(self.GENRES_URL, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            f'Если POST-запрос администратора к `{self.GENRES_URL}` '
+            'содержит некорректные данные - должен вернуться ответ со '
+            'статусом 400.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит некорректные данные - должен вернуться ответ со статусом 400.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_03_genre.py:33: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+______ Test03GenreAPI.test_03_category_fields_validation[data0-massage0] _______
+
+self = <tests.test_03_genre.Test03GenreAPI object at 0x7fb941561850>
+data = {'name': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasimbols', 'slug': 'longname'}
+massage = ('Проверьте, что при обработке POST-запроса к `{url}` проверяется длина поля `name`: название произведения не должно быть длиннее 256 символов.',)
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a23280>
+
+    @pytest.mark.parametrize('data,massage', check_name_and_slug_patterns)
+    def test_03_category_fields_validation(self, data, massage, admin_client):
+        response = admin_client.post(self.GENRES_URL, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            massage[0].format(url=self.GENRES_URL)
+        )
+E       AssertionError: Проверьте, что при обработке POST-запроса к `/api/v1/genres/` проверяется длина поля `name`: название произведения не должно быть длиннее 256 символов.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_03_genre.py:85: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+______ Test03GenreAPI.test_03_category_fields_validation[data1-massage1] _______
+
+self = <tests.test_03_genre.Test03GenreAPI object at 0x7fb950ac5970>
+data = {'name': 'longslug', 'slug': 'llllllllllllllllllllllllllllllllllllllllllllllllllsimbols'}
+massage = ('Проверьте, что при обработке POST-запроса к `{url}` проверяется длина поля `slug`: его содержимое не должно быть длиннее 50 символов.',)
+admin_client = <rest_framework.test.APIClient object at 0x7fb9509d54f0>
+
+    @pytest.mark.parametrize('data,massage', check_name_and_slug_patterns)
+    def test_03_category_fields_validation(self, data, massage, admin_client):
+        response = admin_client.post(self.GENRES_URL, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            massage[0].format(url=self.GENRES_URL)
+        )
+E       AssertionError: Проверьте, что при обработке POST-запроса к `/api/v1/genres/` проверяется длина поля `slug`: его содержимое не должно быть длиннее 50 символов.
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_03_genre.py:85: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+______ Test03GenreAPI.test_03_category_fields_validation[data2-massage2] _______
+
+self = <tests.test_03_genre.Test03GenreAPI object at 0x7fb930570e80>
+data = {'name': 'brokenslug', 'slug': ':-)'}
+massage = ('Проверьте, что при обработке POST-запроса к `{url}` содержание поля `slug` проверяется на соответствие паттерну, указанному в спецификации: ^[-a-zA-Z0-9_]+$',)
+admin_client = <rest_framework.test.APIClient object at 0x7fb950aea5e0>
+
+    @pytest.mark.parametrize('data,massage', check_name_and_slug_patterns)
+    def test_03_category_fields_validation(self, data, massage, admin_client):
+        response = admin_client.post(self.GENRES_URL, data=data)
+>       assert response.status_code == HTTPStatus.BAD_REQUEST, (
+            massage[0].format(url=self.GENRES_URL)
+        )
+E       AssertionError: Проверьте, что при обработке POST-запроса к `/api/v1/genres/` содержание поля `slug` проверяется на соответствие паттерну, указанному в спецификации: ^[-a-zA-Z0-9_]+$
+E       assert 403 == <HTTPStatus.BAD_REQUEST: 400>
+E         +403
+E         -<HTTPStatus.BAD_REQUEST: 400>
+
+tests/test_03_genre.py:85: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+_____________________ Test03GenreAPI.test_04_genres_delete _____________________
+
+self = <tests.test_03_genre.Test03GenreAPI object at 0x7fb9304b2c70>
+admin_client = <rest_framework.test.APIClient object at 0x7fb94156c940>
+
+    def test_04_genres_delete(self, admin_client):
+>       genres = create_genre(admin_client)
+
+tests/test_03_genre.py:90: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb94156c940>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+________________ Test03GenreAPI.test_05_genres_check_permission ________________
+
+self = <tests.test_03_genre.Test03GenreAPI object at 0x7fb94156cf40>
+client = <django.test.client.Client object at 0x7fb93050b220>
+user_client = <rest_framework.test.APIClient object at 0x7fb950ae5820>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb950ae5e50>
+admin_client = <rest_framework.test.APIClient object at 0x7fb930582550>
+
+    def test_05_genres_check_permission(self, client,
+                                        user_client,
+                                        moderator_client,
+                                        admin_client):
+>       genres = create_genre(admin_client)
+
+tests/test_03_genre.py:126: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb930582550>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+______________________ Test04TitleAPI.test_02_title_admin ______________________
+
+self = <tests.test_04_title.Test04TitleAPI object at 0x7fb950a7f7c0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a92760>
+client = <django.test.client.Client object at 0x7fb9509df1f0>
+
+    def test_02_title_admin(self, admin_client, client):
+>       genres = create_genre(admin_client)
+
+tests/test_04_title.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a92760>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+_____________________ Test04TitleAPI.test_03_titles_detail _____________________
+
+self = <tests.test_04_title.Test04TitleAPI object at 0x7fb950a734c0>
+client = <django.test.client.Client object at 0x7fb94155b2b0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb94155ba30>
+
+    def test_03_titles_detail(self, client, admin_client):
+>       titles, categories, _ = create_titles(admin_client)
+
+tests/test_04_title.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb94155ba30>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+_____________ Test04TitleAPI.test_04_titles_name_length_validation _____________
+
+self = <tests.test_04_title.Test04TitleAPI object at 0x7fb930551310>
+admin_client = <rest_framework.test.APIClient object at 0x7fb9304e7d60>
+
+    def test_04_titles_name_length_validation(self, admin_client):
+>       genres = create_genre(admin_client)
+
+tests/test_04_title.py:279: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb9304e7d60>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+________________ Test04TitleAPI.test_05_titles_check_permission ________________
+
+self = <tests.test_04_title.Test04TitleAPI object at 0x7fb950ab51c0>
+client = <django.test.client.Client object at 0x7fb9509ee790>
+user_client = <rest_framework.test.APIClient object at 0x7fb950a7d400>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb950a7d730>
+admin_client = <rest_framework.test.APIClient object at 0x7fb94156ef40>
+
+    def test_05_titles_check_permission(self, client, user_client,
+                                        moderator_client, admin_client):
+>       titles, categories, genres = create_titles(admin_client)
+
+tests/test_04_title.py:327: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb94156ef40>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+_____________ Test04TitleAPI.test_06_titles_detail_put_not_allowed _____________
+
+self = <tests.test_04_title.Test04TitleAPI object at 0x7fb9509ee3d0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb9509d5d00>
+user = <User: TestUser>
+
+    def test_06_titles_detail_put_not_allowed(self, admin_client, user):
+>       titles, _, _ = create_titles(admin_client)
+
+tests/test_04_title.py:345: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb9509d5d00>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+___________________ Test05ReviewAPI.test_01_review_not_auth ____________________
+
+self = <tests.test_05_review.Test05ReviewAPI object at 0x7fb9509cba60>
+client = <django.test.client.Client object at 0x7fb94153c970>
+admin_client = <rest_framework.test.APIClient object at 0x7fb94153c550>
+admin = <User: TestAdmin>
+user_client = <rest_framework.test.APIClient object at 0x7fb9304fc520>
+user = <User: TestUser>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb9304fc700>
+moderator = <User: TestModerator>
+
+    def test_01_review_not_auth(self, client, admin_client, admin, user_client,
+                                user, moderator_client, moderator):
+        author_map = {
+            admin: admin_client,
+            user: user_client,
+            moderator: moderator_client
+        }
+>       reviews, titles = create_reviews(admin_client, author_map)
+
+tests/test_05_review.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:248: in create_reviews
+    titles, _, _ = create_titles(admin_client)
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb94153c550>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+_____________________ Test05ReviewAPI.test_02_review_post ______________________
+
+self = <tests.test_05_review.Test05ReviewAPI object at 0x7fb94153c490>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950b1aca0>
+user_client = <rest_framework.test.APIClient object at 0x7fb950ab6a00>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb950b01d60>
+admin = <User: TestAdmin>
+
+    def test_02_review_post(self, admin_client, user_client,
+                            moderator_client, admin):
+>       titles, _, _ = create_titles(admin_client)
+
+tests/test_05_review.py:77: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb950b1aca0>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+__________________ Test05ReviewAPI.test_03_review_detail_get ___________________
+
+self = <tests.test_05_review.Test05ReviewAPI object at 0x7fb950b1ad60>
+client = <django.test.client.Client object at 0x7fb950b2b4f0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950b1cbb0>
+admin = <User: TestAdmin>, user = <User: TestUser>
+user_client = <rest_framework.test.APIClient object at 0x7fb950b1c580>
+moderator = <User: TestModerator>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb950b1ca60>
+
+    def test_03_review_detail_get(self, client, admin_client, admin, user,
+                                  user_client, moderator, moderator_client):
+        author_map = {
+            admin: admin_client,
+            user: user_client,
+            moderator: moderator_client
+        }
+>       reviews, titles = create_reviews(admin_client, author_map)
+
+tests/test_05_review.py:233: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:248: in create_reviews
+    titles, _, _ = create_titles(admin_client)
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb950b1cbb0>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+__________________ Test05ReviewAPI.test_04_review_detail_user __________________
+
+self = <tests.test_05_review.Test05ReviewAPI object at 0x7fb930551eb0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb93067c790>
+admin = <User: TestAdmin>, user = <User: TestUser>
+user_client = <rest_framework.test.APIClient object at 0x7fb93052f790>
+moderator = <User: TestModerator>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb93052fc40>
+
+    def test_04_review_detail_user(self, admin_client, admin, user,
+                                   user_client, moderator, moderator_client):
+        author_map = {
+            admin: admin_client,
+            user: user_client,
+            moderator: moderator_client
+        }
+>       reviews, titles = create_reviews(admin_client, author_map)
+
+tests/test_05_review.py:266: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:248: in create_reviews
+    titles, _, _ = create_titles(admin_client)
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb93067c790>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+__________ Test05ReviewAPI.test_05_reviews_detail_moderator_and_admin __________
+
+self = <tests.test_05_review.Test05ReviewAPI object at 0x7fb93067c310>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950b28430>
+admin = <User: TestAdmin>
+user_client = <rest_framework.test.APIClient object at 0x7fb9304d6e20>
+user = <User: TestUser>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb950a23970>
+moderator = <User: TestModerator>
+
+    def test_05_reviews_detail_moderator_and_admin(self, admin_client, admin,
+                                                   user_client, user,
+                                                   moderator_client,
+                                                   moderator):
+        author_map = {
+            admin: admin_client,
+            user: user_client,
+            moderator: moderator_client
+        }
+>       reviews, titles = create_reviews(admin_client, author_map)
+
+tests/test_05_review.py:354: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:248: in create_reviews
+    titles, _, _ = create_titles(admin_client)
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb950b28430>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+____________ Test05ReviewAPI.test_06_reviews_detail_put_not_allowed ____________
+
+self = <tests.test_05_review.Test05ReviewAPI object at 0x7fb950b28970>
+admin_client = <rest_framework.test.APIClient object at 0x7fb9509d5190>
+admin = <User: TestAdmin>
+user_client = <rest_framework.test.APIClient object at 0x7fb9509d5430>
+user = <User: TestUser>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb930472340>
+moderator = <User: TestModerator>
+
+    def test_06_reviews_detail_put_not_allowed(
+            self, admin_client, admin, user_client, user, moderator_client,
+            moderator):
+        author_map = {
+            admin: admin_client,
+            user: user_client,
+            moderator: moderator_client
+        }
+>       reviews, titles = create_reviews(admin_client, author_map)
+
+tests/test_05_review.py:403: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:248: in create_reviews
+    titles, _, _ = create_titles(admin_client)
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb9509d5190>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+__________________ Test06CommentAPI.test_01_comment_not_auth ___________________
+
+self = <tests.test_06_comment.Test06CommentAPI object at 0x7fb950af4d00>
+client = <django.test.client.Client object at 0x7fb92008c970>
+admin_client = <rest_framework.test.APIClient object at 0x7fb92008c220>
+admin = <User: TestAdmin>
+user_client = <rest_framework.test.APIClient object at 0x7fb9509b07f0>
+user = <User: TestUser>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb9509b0b20>
+moderator = <User: TestModerator>
+
+    def test_01_comment_not_auth(self, client, admin_client, admin,
+                                 user_client, user, moderator_client,
+                                 moderator):
+        author_map = {
+            admin: admin_client,
+            user: user_client,
+            moderator: moderator_client
+        }
+>       reviews, titles = create_reviews(admin_client, author_map)
+
+tests/test_06_comment.py:26: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:248: in create_reviews
+    titles, _, _ = create_titles(admin_client)
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb92008c220>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+_______________________ Test06CommentAPI.test_02_comment _______________________
+
+self = <tests.test_06_comment.Test06CommentAPI object at 0x7fb92008cc10>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950b793a0>
+admin = <User: TestAdmin>
+user_client = <rest_framework.test.APIClient object at 0x7fb950b79b50>
+user = <User: TestUser>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb950ab67f0>
+moderator = <User: TestModerator>
+
+    def test_02_comment(self, admin_client, admin, user_client, user,
+                        moderator_client, moderator):
+        author_map = {
+            admin: admin_client,
+            user: user_client,
+            moderator: moderator_client
+        }
+>       reviews, titles = create_reviews(admin_client, author_map)
+
+tests/test_06_comment.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:248: in create_reviews
+    titles, _, _ = create_titles(admin_client)
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb950b793a0>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+_________________ Test06CommentAPI.test_03_comment_detail_get __________________
+
+self = <tests.test_06_comment.Test06CommentAPI object at 0x7fb950b79130>
+client = <django.test.client.Client object at 0x7fb950b29fa0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a7f850>
+admin = <User: TestAdmin>
+user_client = <rest_framework.test.APIClient object at 0x7fb9304b24c0>
+user = <User: TestUser>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb9304b2ca0>
+moderator = <User: TestModerator>
+
+    def test_03_comment_detail_get(self, client, admin_client, admin,
+                                   user_client, user, moderator_client,
+                                   moderator):
+        author_map = {
+            admin: admin_client,
+            user: user_client,
+            moderator: moderator_client
+        }
+>       comments, reviews, titles = create_comments(admin_client, author_map)
+
+tests/test_06_comment.py:138: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:267: in create_comments
+    reviews, titles = create_reviews(admin_client, authors_map)
+tests/utils.py:248: in create_reviews
+    titles, _, _ = create_titles(admin_client)
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb950a7f850>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+__________ Test06CommentAPI.test_04_comment_detail__user_patch_delete __________
+
+self = <tests.test_06_comment.Test06CommentAPI object at 0x7fb950b797f0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb950b9b5e0>
+admin = <User: TestAdmin>
+user_client = <rest_framework.test.APIClient object at 0x7fb9304f23a0>
+user = <User: TestUser>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb9304f2f40>
+moderator = <User: TestModerator>
+
+    def test_04_comment_detail__user_patch_delete(self, admin_client, admin,
+                                                  user_client, user,
+                                                  moderator_client,
+                                                  moderator):
+        author_map = {
+            admin: admin_client,
+            user: user_client,
+            moderator: moderator_client
+        }
+>       comments, reviews, titles = create_comments(admin_client, author_map)
+
+tests/test_06_comment.py:175: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:267: in create_comments
+    reviews, titles = create_reviews(admin_client, authors_map)
+tests/utils.py:248: in create_reviews
+    titles, _, _ = create_titles(admin_client)
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb950b9b5e0>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+_________ Test06CommentAPI.test_05_comment_detail_admin_and_moderator __________
+
+self = <tests.test_06_comment.Test06CommentAPI object at 0x7fb950b9bd90>
+admin_client = <rest_framework.test.APIClient object at 0x7fb9509f5cd0>
+admin = <User: TestAdmin>
+user_client = <rest_framework.test.APIClient object at 0x7fb950a159d0>
+user = <User: TestUser>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb950a158b0>
+moderator = <User: TestModerator>
+
+    def test_05_comment_detail_admin_and_moderator(self, admin_client, admin,
+                                                   user_client, user,
+                                                   moderator_client,
+                                                   moderator):
+        author_map = {
+            admin: admin_client,
+            user: user_client,
+            moderator: moderator_client
+        }
+>       comments, reviews, titles = create_comments(admin_client, author_map)
+
+tests/test_06_comment.py:254: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:267: in create_comments
+    reviews, titles = create_reviews(admin_client, authors_map)
+tests/utils.py:248: in create_reviews
+    titles, _, _ = create_titles(admin_client)
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb9509f5cd0>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+_______________ Test06CommentAPI.test_06_comment_detail_not_auth _______________
+
+self = <tests.test_06_comment.Test06CommentAPI object at 0x7fb9509f5e50>
+admin_client = <rest_framework.test.APIClient object at 0x7fb9304e7610>
+admin = <User: TestAdmin>
+client = <django.test.client.Client object at 0x7fb9304e7bb0>
+user_client = <rest_framework.test.APIClient object at 0x7fb950a7d580>
+user = <User: TestUser>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb950a7d640>
+moderator = <User: TestModerator>
+
+    def test_06_comment_detail_not_auth(self, admin_client, admin, client,
+                                        user_client, user, moderator_client,
+                                        moderator):
+        author_map = {
+            admin: admin_client,
+            user: user_client,
+            moderator: moderator_client
+        }
+>       comments, reviews, titles = create_comments(admin_client, author_map)
+
+tests/test_06_comment.py:308: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:267: in create_comments
+    reviews, titles = create_reviews(admin_client, authors_map)
+tests/utils.py:248: in create_reviews
+    titles, _, _ = create_titles(admin_client)
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb9304e7610>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+___________ Test06CommentAPI.test_07_comment_detail_put_not_allowed ____________
+
+self = <tests.test_06_comment.Test06CommentAPI object at 0x7fb9304e79a0>
+admin_client = <rest_framework.test.APIClient object at 0x7fb9509df520>
+admin = <User: TestAdmin>
+user_client = <rest_framework.test.APIClient object at 0x7fb950ae5ac0>
+user = <User: TestUser>
+moderator_client = <rest_framework.test.APIClient object at 0x7fb950b08460>
+moderator = <User: TestModerator>
+
+    def test_07_comment_detail_put_not_allowed(
+            self, admin_client, admin, user_client, user, moderator_client,
+            moderator):
+        author_map = {
+            admin: admin_client,
+            user: user_client,
+            moderator: moderator_client
+        }
+>       comments, reviews, titles = create_comments(admin_client, author_map)
+
+tests/test_06_comment.py:354: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/utils.py:267: in create_comments
+    reviews, titles = create_reviews(admin_client, authors_map)
+tests/utils.py:248: in create_reviews
+    titles, _, _ = create_titles(admin_client)
+tests/utils.py:217: in create_titles
+    genres = create_genre(admin_client)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_client = <rest_framework.test.APIClient object at 0x7fb9509df520>
+
+    def create_genre(admin_client):
+        result = []
+        data = {'name': 'Ужасы', 'slug': 'horror'}
+        result.append(data)
+        response = admin_client.post('/api/v1/genres/', data=data)
+>       assert response.status_code == HTTPStatus.CREATED, (
+            'Если POST-запрос администратора к `/api/v1/genres/` содержит '
+            'корректные данные - должен вернуться ответ со статусом 201.'
+        )
+E       AssertionError: Если POST-запрос администратора к `/api/v1/genres/` содержит корректные данные - должен вернуться ответ со статусом 201.
+
+tests/utils.py:203: AssertionError
+------------------------------ Captured log call -------------------------------
+WARNING  django.request:log.py:224 Forbidden: /api/v1/genres/
+--------------------------- Captured stderr teardown ---------------------------
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+=============================== warnings summary ===============================
+tests/test_02_category.py::Test02CategoryAPI::test_01_category_not_auth
+  /Users/macbook-pro/Documents/praktikum/api_group/env/lib/python3.9/site-packages/rest_framework/pagination.py:200: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'reviews.models.Category'> QuerySet.
+    paginator = self.django_paginator_class(queryset, page_size)
+
+tests/test_03_genre.py::Test03GenreAPI::test_01_genre_not_auth
+  /Users/macbook-pro/Documents/praktikum/api_group/env/lib/python3.9/site-packages/rest_framework/pagination.py:200: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'reviews.models.Genre'> QuerySet.
+    paginator = self.django_paginator_class(queryset, page_size)
+
+tests/test_04_title.py::Test04TitleAPI::test_01_title_not_auth
+  /Users/macbook-pro/Documents/praktikum/api_group/env/lib/python3.9/site-packages/rest_framework/pagination.py:200: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'reviews.models.Title'> QuerySet.
+    paginator = self.django_paginator_class(queryset, page_size)
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_00_user_registration.py::Test00UserRegistration::test_00_valid_data_admin_create_user
+FAILED tests/test_00_user_registration.py::Test00UserRegistration::test_00_admin_create_user_length_and_simbols_validation[data0-messege0]
+FAILED tests/test_00_user_registration.py::Test00UserRegistration::test_00_admin_create_user_length_and_simbols_validation[data1-messege1]
+FAILED tests/test_00_user_registration.py::Test00UserRegistration::test_00_admin_create_user_length_and_simbols_validation[data2-messege2]
+FAILED tests/test_00_user_registration.py::Test00UserRegistration::test_00_admin_create_user_length_and_simbols_validation[data3-messege3]
+FAILED tests/test_00_user_registration.py::Test00UserRegistration::test_00_admin_create_user_length_and_simbols_validation[data4-messege4]
+FAILED tests/test_00_user_registration.py::Test00UserRegistration::test_get_new_confirmation_code_for_existing_user
+FAILED tests/test_00_user_registration.py::Test00UserRegistration::test_get_confirmation_code_for_user_created_by_admin
+FAILED tests/test_01_users.py::Test01UserAPI::test_04_users_get_admin - Asser...
+FAILED tests/test_01_users.py::Test01UserAPI::test_04_02_users_get_search - A...
+FAILED tests/test_01_users.py::Test01UserAPI::test_05_01_users_post_admin_bad_requests
+FAILED tests/test_01_users.py::Test01UserAPI::test_05_02_users_post_admin_user_creation[data0-]
+FAILED tests/test_01_users.py::Test01UserAPI::test_05_02_users_post_admin_user_creation[data1-без указания роли нового пользователя ]
+FAILED tests/test_01_users.py::Test01UserAPI::test_05_03_users_post_response_has_data
+FAILED tests/test_01_users.py::Test01UserAPI::test_06_users_username_get_admin
+FAILED tests/test_01_users.py::Test01UserAPI::test_07_01_users_username_patch_admin
+FAILED tests/test_01_users.py::Test01UserAPI::test_07_05_users_username_put_not_allowed
+FAILED tests/test_01_users.py::Test01UserAPI::test_08_01_users_username_delete_admin
+FAILED tests/test_01_users.py::Test01UserAPI::test_08_04_users_username_delete_superuser
+FAILED tests/test_01_users.py::Test01UserAPI::test_09_users_me_get - Assertio...
+FAILED tests/test_01_users.py::Test01UserAPI::test_09_02_users_me_delete_not_allowed
+FAILED tests/test_01_users.py::Test01UserAPI::test_10_01_users_me_patch - Ass...
+FAILED tests/test_01_users.py::Test01UserAPI::test_10_02_users_me_has_field_validation[data0-messege0]
+FAILED tests/test_01_users.py::Test01UserAPI::test_10_02_users_me_has_field_validation[data1-messege1]
+FAILED tests/test_01_users.py::Test01UserAPI::test_10_02_users_me_has_field_validation[data2-messege2]
+FAILED tests/test_01_users.py::Test01UserAPI::test_10_02_users_me_has_field_validation[data3-messege3]
+FAILED tests/test_01_users.py::Test01UserAPI::test_10_02_users_me_has_field_validation[data4-messege4]
+FAILED tests/test_01_users.py::Test01UserAPI::test_10_03_users_me_patch_change_role_not_allowed
+FAILED tests/test_02_category.py::Test02CategoryAPI::test_02_category_with_admin_user
+FAILED tests/test_02_category.py::Test02CategoryAPI::test_03_category_fields_validation[data0-massage0]
+FAILED tests/test_02_category.py::Test02CategoryAPI::test_03_category_fields_validation[data1-massage1]
+FAILED tests/test_02_category.py::Test02CategoryAPI::test_03_category_fields_validation[data2-massage2]
+FAILED tests/test_02_category.py::Test02CategoryAPI::test_04_category_delete_admin
+FAILED tests/test_02_category.py::Test02CategoryAPI::test_05_category_check_permission_admin
+FAILED tests/test_03_genre.py::Test03GenreAPI::test_02_genre - AssertionError...
+FAILED tests/test_03_genre.py::Test03GenreAPI::test_03_category_fields_validation[data0-massage0]
+FAILED tests/test_03_genre.py::Test03GenreAPI::test_03_category_fields_validation[data1-massage1]
+FAILED tests/test_03_genre.py::Test03GenreAPI::test_03_category_fields_validation[data2-massage2]
+FAILED tests/test_03_genre.py::Test03GenreAPI::test_04_genres_delete - Assert...
+FAILED tests/test_03_genre.py::Test03GenreAPI::test_05_genres_check_permission
+FAILED tests/test_04_title.py::Test04TitleAPI::test_02_title_admin - Assertio...
+FAILED tests/test_04_title.py::Test04TitleAPI::test_03_titles_detail - Assert...
+FAILED tests/test_04_title.py::Test04TitleAPI::test_04_titles_name_length_validation
+FAILED tests/test_04_title.py::Test04TitleAPI::test_05_titles_check_permission
+FAILED tests/test_04_title.py::Test04TitleAPI::test_06_titles_detail_put_not_allowed
+FAILED tests/test_05_review.py::Test05ReviewAPI::test_01_review_not_auth - As...
+FAILED tests/test_05_review.py::Test05ReviewAPI::test_02_review_post - Assert...
+FAILED tests/test_05_review.py::Test05ReviewAPI::test_03_review_detail_get - ...
+FAILED tests/test_05_review.py::Test05ReviewAPI::test_04_review_detail_user
+FAILED tests/test_05_review.py::Test05ReviewAPI::test_05_reviews_detail_moderator_and_admin
+FAILED tests/test_05_review.py::Test05ReviewAPI::test_06_reviews_detail_put_not_allowed
+FAILED tests/test_06_comment.py::Test06CommentAPI::test_01_comment_not_auth
+FAILED tests/test_06_comment.py::Test06CommentAPI::test_02_comment - Assertio...
+FAILED tests/test_06_comment.py::Test06CommentAPI::test_03_comment_detail_get
+FAILED tests/test_06_comment.py::Test06CommentAPI::test_04_comment_detail__user_patch_delete
+FAILED tests/test_06_comment.py::Test06CommentAPI::test_05_comment_detail_admin_and_moderator
+FAILED tests/test_06_comment.py::Test06CommentAPI::test_06_comment_detail_not_auth
+FAILED tests/test_06_comment.py::Test06CommentAPI::test_07_comment_detail_put_not_allowed
+================== 58 failed, 22 passed, 3 warnings in 15.98s ==================

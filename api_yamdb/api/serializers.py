@@ -9,13 +9,13 @@ from users.validators import username_validator
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ('id', 'name', 'slug')
-
+        fields = ('name', 'slug')
 
 class GenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
-        fields = ('id', 'name', 'slug')
+        fields = ['name', 'slug']  # Поля, необходимые по документации
+
 
 
 class TitleSerializer(serializers.ModelSerializer):
