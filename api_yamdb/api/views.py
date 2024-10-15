@@ -15,7 +15,7 @@ from django_filters.rest_framework import DjangoFilterBackend, CharFilter, Filte
 
 from .serializers import CategorySerializer, TokenSerializer, SignupSerializer, UserEditSerializer, \
     UserSerializer, GenreSerializer, TitleSerializer, TitleCreateSerializer
-from .permissions import IsAdminOrReadOnly
+from .permissions import IsAdmin, IsAdminOrReadOnly
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
@@ -121,7 +121,7 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     pagination_class = PageNumberPagination
-    permission_classes = (IsAdminOrReadOnly,)
+    permission_classes = (IsAdmin,)
 
     @action(
         methods=['get', 'patch'],

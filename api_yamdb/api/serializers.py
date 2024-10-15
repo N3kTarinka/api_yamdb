@@ -1,9 +1,9 @@
 from django.conf import settings
 from rest_framework import serializers
 from rest_framework.fields import CharField, EmailField
+from api.validators import username_validator
 from reviews.models import Category, Genre, Title
 from users.models import User
-from users.validators import username_validator
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -66,9 +66,6 @@ class SignupSerializer(serializers.Serializer):
     )
     email = EmailField(max_length=settings.EMAIL_LIMIT, required=True)
 
-    def validate_username(self, value):
-        return username_validator(value)
-
 
 class TokenSerializer(serializers.Serializer):
     username = CharField(
@@ -79,6 +76,3 @@ class TokenSerializer(serializers.Serializer):
     confirmation_code = CharField(
         max_length=settings.CODE_LIMIT, required=True
     )
-
-    def validate_username(self, value):
-        return username_validator(value)
