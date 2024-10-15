@@ -9,13 +9,14 @@ from users.validators import username_validator
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ('id', 'name', 'slug')
+        fields = ('name', 'slug')
 
 
 class GenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
-        fields = ('id', 'name', 'slug')
+        fields = ('name', 'slug')
+
 
 
 class TitleSerializer(serializers.ModelSerializer):
@@ -25,6 +26,18 @@ class TitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Title
         fields = ('id', 'name', 'year', 'description', 'category', 'genre')
+
+class TitleCreateSerializer(serializers.ModelSerializer):
+    category = serializers.SlugRelatedField(
+        slug_field='slug', queryset=Category.objects.all()
+    )
+    genre = serializers.SlugRelatedField(
+        slug_field='slug', queryset=Genre.objects.all(), many=True
+    )
+
+    class Meta:
+        model = Title
+        fields = ('name', 'year', 'description', 'category', 'genre', 'id')
 
 
 class UserSerializer(serializers.ModelSerializer):
