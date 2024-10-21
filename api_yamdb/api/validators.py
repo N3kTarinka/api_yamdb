@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 
 
 def username_validator(value):
-    unmatched = re.sub(r'[\w.@+-]', '', value)
+    unmatched = re.sub(r'^[\w.@+-]+\Z', '', value)
     if value == 'me':
         raise ValidationError('Имя пользователя "me" использовать нельзя!')
     elif value in unmatched:
