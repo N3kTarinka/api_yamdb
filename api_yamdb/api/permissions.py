@@ -1,6 +1,7 @@
 from rest_framework import permissions
 from users.models import User
 
+
 class IsModeratorPermission(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         return (
@@ -10,6 +11,7 @@ class IsModeratorPermission(permissions.BasePermission):
             or request.user.is_superuser
             or request.user.role == User.MODERATOR
         )
+
 
 class IsAdminOrReadOnly(permissions.IsAdminUser):
     def has_permission(self, request, view):
@@ -21,6 +23,7 @@ class IsAdminOrReadOnly(permissions.IsAdminUser):
         return request.method in permissions.SAFE_METHODS or (
             request.user.is_authenticated and request.user.role == User.ADMIN
         )
+
 
 class IsUserAdminModeratorOrReadOnly(permissions.BasePermission):
     def has_permission(self, request, view):
