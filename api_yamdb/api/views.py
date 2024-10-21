@@ -140,6 +140,18 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     pagination_class = PageNumberPagination
     permission_classes = (IsAdmin,)
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('username',)
+
+
+    def update(self, request, *args, **kwargs):
+        # Block PUT requests by returning a 405 status
+        if request.method == 'PUT':
+            return Response(
+                {'detail': 'Method Not Allowed'},
+                status=status.HTTP_405_METHOD_NOT_ALLOWED
+            )
+        return super().update(request, *args, **kwargs)
 
     @action(
         methods=['get', 'patch'],
