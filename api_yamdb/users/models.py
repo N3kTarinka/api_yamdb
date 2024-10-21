@@ -22,7 +22,7 @@ class User(AbstractUser):
         error_messages={
             'unique': 'Пользователь с таким именем уже существует!',
         },
-            )
+    )
     email = models.EmailField(
         'Электронная почта',
         max_length=settings.EMAIL_LIMIT,

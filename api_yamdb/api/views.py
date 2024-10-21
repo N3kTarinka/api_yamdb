@@ -143,7 +143,6 @@ class UserViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.SearchFilter,)
     search_fields = ('username',)
 
-
     def update(self, request, *args, **kwargs):
         # Block PUT requests by returning a 405 status
         if request.method == 'PUT':
