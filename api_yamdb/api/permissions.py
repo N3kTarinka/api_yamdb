@@ -7,9 +7,8 @@ class IsModeratorPermission(permissions.BasePermission):
         return (
             request.method in permissions.SAFE_METHODS
             or obj.author == request.user
-            or request.user.role == User.ADMIN
+            or request.user.role in [User.ADMIN, User.MODERATOR]
             or request.user.is_superuser
-            or request.user.role == User.MODERATOR
         )
 
 
