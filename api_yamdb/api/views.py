@@ -1,32 +1,36 @@
 import uuid
-from django.db.models import Avg
+
 from django.conf import settings
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db import IntegrityError
-from rest_framework.decorators import action, api_view
-from rest_framework.generics import get_object_or_404
-from rest_framework.permissions import IsAuthenticated
-from rest_framework_simplejwt.tokens import AccessToken
-from reviews.models import Category, Genre, Title, Review
-from users.models import User
-from rest_framework import filters, status, viewsets
-from rest_framework.response import Response
-from rest_framework.pagination import PageNumberPagination
+from django.db.models import Avg
 from django_filters.rest_framework import (DjangoFilterBackend,
                                            CharFilter, FilterSet)
 
-from .serializers import (CategorySerializer, TokenSerializer,
-                          SignupSerializer, UserEditSerializer,
-                          UserSerializer, GenreSerializer,
-                          TitleSerializer, TitleCreateSerializer,
-                          ReviewSerializer, CommentSerializer)
+from rest_framework import filters, status, viewsets
+from rest_framework.decorators import action, api_view
+from rest_framework.generics import get_object_or_404
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework_simplejwt.tokens import AccessToken
+
+from reviews.models import Category, Genre, Title, Review
+from users.models import User
+
+from .serializers import (
+    CategorySerializer, TokenSerializer, SignupSerializer, UserEditSerializer,
+    UserSerializer, GenreSerializer, TitleSerializer, TitleCreateSerializer,
+    ReviewSerializer, CommentSerializer
+)
 from .permissions import (IsAdmin, IsAdminOrReadOnly,
                           IsUserAdminModeratorOrReadOnly)
 
 
 class BanPutHeadOptionsMethodsMixinViewSet(viewsets.ModelViewSet):
     http_method_names = ('get', 'patch', 'post', 'delete')
+
 
 class BaseReviewViewSet(BanPutHeadOptionsMethodsMixinViewSet):
     permission_classes = (IsUserAdminModeratorOrReadOnly,)
