@@ -24,6 +24,9 @@ from .permissions import IsAdmin, IsAdminOrReadOnly, \
     IsUserAdminModeratorOrReadOnly
 
 
+class BanPutHeadOptionsMethodsMixinViewSet(viewsets.ModelViewSet):
+    http_method_names = ('get', 'patch', 'post', 'delete')
+
 class BaseReviewViewSet(viewsets.ModelViewSet):
     http_method_names = ('get', 'patch', 'post', 'delete')
     permission_classes = (IsUserAdminModeratorOrReadOnly,)
@@ -135,7 +138,7 @@ class TitleViewSet(viewsets.ModelViewSet):
         return queryset
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserViewSet(BanPutHeadOptionsMethodsMixinViewSet):
     lookup_field = 'username'
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -143,15 +146,6 @@ class UserViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAdmin,)
     filter_backends = (filters.SearchFilter,)
     search_fields = ('username',)
-
-    def update(self, request, *args, **kwargs):
-        # Block PUT requests by returning a 405 status
-        if request.method == 'PUT':
-            return Response(
-                {'detail': 'Method Not Allowed'},
-                status=status.HTTP_405_METHOD_NOT_ALLOWED
-            )
-        return super().update(request, *args, **kwargs)
 
     @action(
         methods=['get', 'patch'],
