@@ -1,10 +1,8 @@
-from django.contrib.auth import get_user_model
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 from .validators import validate_year
-
-User = get_user_model()
+from users.models import User
 
 
 class Category(models.Model):
