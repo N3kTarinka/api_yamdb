@@ -10,25 +10,25 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.tokens import AccessToken
 from reviews.models import Category, Genre, Title, Review
 from users.models import User
-from rest_framework import status, viewsets, filters
+from rest_framework import filters, status, viewsets
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import (DjangoFilterBackend,
                                            CharFilter, FilterSet)
 
-from .serializers import CategorySerializer, TokenSerializer, \
-    SignupSerializer, UserEditSerializer, UserSerializer, \
-    GenreSerializer, TitleSerializer, TitleCreateSerializer, \
-    ReviewSerializer, CommentSerializer
-from .permissions import IsAdmin, IsAdminOrReadOnly, \
-    IsUserAdminModeratorOrReadOnly
+from .serializers import (CategorySerializer, TokenSerializer,
+                          SignupSerializer, UserEditSerializer,
+                          UserSerializer, GenreSerializer,
+                          TitleSerializer, TitleCreateSerializer,
+                          ReviewSerializer, CommentSerializer)
+from .permissions import (IsAdmin, IsAdminOrReadOnly,
+                          IsUserAdminModeratorOrReadOnly)
 
 
 class BanPutHeadOptionsMethodsMixinViewSet(viewsets.ModelViewSet):
     http_method_names = ('get', 'patch', 'post', 'delete')
 
-class BaseReviewViewSet(viewsets.ModelViewSet):
-    http_method_names = ('get', 'patch', 'post', 'delete')
+class BaseReviewViewSet(BanPutHeadOptionsMethodsMixinViewSet):
     permission_classes = (IsUserAdminModeratorOrReadOnly,)
 
     def get_instance(self, model, pk):
@@ -204,12 +204,9 @@ def signup(request):
         email = serializer.validated_data.get('email')
         user, _ = User.objects.get_or_create(username=username, email=email)
     except IntegrityError:
-        real_error = (
-            settings.LOGIN_ERROR
-            if User.objects.filter(username=username).exists()
-            else settings.EMAIL_ERROR
+        return Response(
+            settings.LOGIN_OR_EMAIL_ERROR, status.HTTP_400_BAD_REQUEST
         )
-        return Response(real_error, status.HTTP_400_BAD_REQUEST)
     confirmation_code = str(uuid.uuid4())
     send_mail(
         subject='Регистрация в проекте YaMDb',

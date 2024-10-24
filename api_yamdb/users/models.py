@@ -27,6 +27,9 @@ class User(AbstractUser):
         'Электронная почта',
         max_length=settings.EMAIL_LIMIT,
         unique=True,
+        error_messages={
+            'unique': 'Пользователь с таким email уже существует!',
+        },
     )
     first_name = models.CharField(
         'Имя',
