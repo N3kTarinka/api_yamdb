@@ -147,3 +147,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 AUTH_USER_MODEL = 'users.User'
 
 CODE_LIMIT = 200
+
+LOGIN_ERROR = 'Это имя пользователя уже занято!'
+
+EMAIL_ERROR = 'Эта электронная почта уже занята!'

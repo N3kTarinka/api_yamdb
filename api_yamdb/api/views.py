@@ -1,3 +1,4 @@
+import uuid
 from django.db.models import Avg
 from django.conf import settings
 from django.contrib.auth.tokens import default_token_generator
@@ -202,8 +203,6 @@ class CommentViewSet(BaseReviewViewSet):
 
 @api_view(['POST'])
 def signup(request):
-    LOGIN_ERROR = 'Это имя пользователя уже занято!'
-    EMAIL_ERROR = 'Эта электронная почта уже занята!'
     serializer = SignupSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
     try:
@@ -212,13 +211,12 @@ def signup(request):
         user, _ = User.objects.get_or_create(username=username, email=email)
     except IntegrityError:
         real_error = (
-            LOGIN_ERROR
+            settings.LOGIN_ERROR
             if User.objects.filter(username=username).exists()
-            else EMAIL_ERROR
+            else settings.EMAIL_ERROR
         )
         return Response(real_error, status.HTTP_400_BAD_REQUEST)
-
-    confirmation_code = default_token_generator.make_token(user)
+    confirmation_code = str(uuid.uuid4())
     send_mail(
         subject='Регистрация в проекте YaMDb',
         message=f'Ваш проверочный код: {confirmation_code}',
