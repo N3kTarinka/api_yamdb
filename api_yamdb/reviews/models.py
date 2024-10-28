@@ -1,9 +1,7 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-
 from users.models import User
 from .validators import validate_year
-
 
 SNIPPET_LENGTH = 20
 
@@ -27,20 +25,23 @@ class BaseModel(models.Model):
         return self.text[:SNIPPET_LENGTH]
 
 
-class Category(models.Model):
+class BaseCategoryModel(models.Model):
     name = models.CharField(max_length=256)
     slug = models.SlugField(unique=True)
+
+    class Meta:
+        abstract = True
 
     def __str__(self):
         return self.name
 
 
-class Genre(models.Model):
-    name = models.CharField(max_length=256)
-    slug = models.SlugField(unique=True)
+class Category(BaseCategoryModel):
+    pass
 
-    def __str__(self):
-        return self.name
+
+class Genre(BaseCategoryModel):
+    pass
 
 
 class Title(models.Model):
