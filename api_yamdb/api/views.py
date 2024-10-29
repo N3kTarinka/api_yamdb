@@ -26,8 +26,6 @@ from reviews.models import Category, Genre, Title, Review
 from users.models import User
 
 
-
-
 class BanPutHeadOptionsMethodsMixinViewSet(viewsets.ModelViewSet):
     http_method_names = ('get', 'patch', 'post', 'delete')
 
@@ -93,7 +91,6 @@ class TitleViewSet(BanPutHeadOptionsMethodsMixinViewSet):
         if self.action in ['create', 'partial_update']:
             return TitleCreateSerializer
         return TitleSerializer
-
 
     def get_queryset(self):
         queryset = (
