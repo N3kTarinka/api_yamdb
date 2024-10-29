@@ -1,26 +1,23 @@
 from django.conf import settings
+from django.shortcuts import get_object_or_404
 from rest_framework import serializers
 from rest_framework.fields import CharField, EmailField
+
 from api.validators import username_validator
 from reviews.models import Category, Genre, Title, Review, Comment
 from users.models import User
-from django.shortcuts import get_object_or_404
-
-
-MIN_SCORE = 1
-MAX_SCORE = 10
 
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ('name', 'slug')
+        exclude = ('id',)
 
 
 class GenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genre
-        fields = ('name', 'slug')
+        exclude = ('id',)
 
 
 class TitleSerializer(serializers.ModelSerializer):
@@ -106,9 +103,10 @@ class ReviewSerializer(serializers.ModelSerializer):
         return data
 
     def validate_score(self, score):
-        if not MIN_SCORE <= score <= MAX_SCORE:
+        if not settings.MIN_SCORE_REVIEW <= score <= settings.MAX_SCORE_REVIEW:
             raise serializers.ValidationError(
-                f'Оценка должна быть от {MIN_SCORE} до {MAX_SCORE}'
+                f'Оценка должна быть от {settings.MIN_SCORE_REVIEW} до'
+                f' {settings.MAX_SCORE_REVIEW}'
             )
         return score
 

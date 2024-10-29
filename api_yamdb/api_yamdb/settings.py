@@ -149,3 +149,9 @@ AUTH_USER_MODEL = 'users.User'
 CODE_LIMIT = 200
 
 LOGIN_OR_EMAIL_ERROR = 'Имя пользователя или почта уже используются'
+
+SNIPPET_LENGTH = 20
+
+MIN_SCORE_REVIEW = 1
+
+MAX_SCORE_REVIEW = 10

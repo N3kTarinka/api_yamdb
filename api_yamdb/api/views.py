@@ -5,9 +5,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db import IntegrityError
 from django.db.models import Avg
-from django_filters.rest_framework import (DjangoFilterBackend,
-                                           CharFilter, FilterSet)
-
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, status, viewsets
 from rest_framework.decorators import action, api_view
 from rest_framework.generics import get_object_or_404
@@ -16,16 +14,18 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
 
+from api.filter import TitleFilter
+from api.permissions import (IsAdmin, IsAdminOrReadOnly,
+                             IsUserAdminModeratorOrReadOnly)
+from api.serializers import (CategorySerializer, TokenSerializer,
+                             SignupSerializer, UserEditSerializer,
+                             UserSerializer, GenreSerializer, TitleSerializer,
+                             TitleCreateSerializer, ReviewSerializer,
+                             CommentSerializer)
 from reviews.models import Category, Genre, Title, Review
 from users.models import User
 
-from .serializers import (
-    CategorySerializer, TokenSerializer, SignupSerializer, UserEditSerializer,
-    UserSerializer, GenreSerializer, TitleSerializer, TitleCreateSerializer,
-    ReviewSerializer, CommentSerializer
-)
-from .permissions import (IsAdmin, IsAdminOrReadOnly,
-                          IsUserAdminModeratorOrReadOnly)
+
 
 
 class BanPutHeadOptionsMethodsMixinViewSet(viewsets.ModelViewSet):
@@ -40,6 +40,7 @@ class BaseReviewViewSet(BanPutHeadOptionsMethodsMixinViewSet):
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
+    http_method_names = ('get', 'post', 'delete')
     queryset = Category.objects.all().order_by('id')
     serializer_class = CategorySerializer
     lookup_field = 'slug'
@@ -55,15 +56,9 @@ class CategoryViewSet(viewsets.ModelViewSet):
             status=status.HTTP_405_METHOD_NOT_ALLOWED
         )
 
-    def partial_update(self, request, *args, **kwargs):
-        # Отключаем PATCH запросы и возвращаем 405
-        return Response(
-            {'detail': 'Method Not Allowed'},
-            status=status.HTTP_405_METHOD_NOT_ALLOWED
-        )
-
 
 class GenreViewSet(viewsets.ModelViewSet):
+    http_method_names = ('get', 'post', 'delete')
     queryset = Genre.objects.all().order_by('id')
     serializer_class = GenreSerializer
     permission_classes = [IsAdminOrReadOnly]
@@ -86,26 +81,8 @@ class GenreViewSet(viewsets.ModelViewSet):
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    def partial_update(self, request, *args, **kwargs):
-        slug = kwargs.get('slug')
-        if not Genre.objects.filter(slug=slug).exists():
-            return Response(
-                {'detail': 'Method Not Allowed'},
-                status=status.HTTP_405_METHOD_NOT_ALLOWED
-            )
-        return super().partial_update(request, *args, **kwargs)
 
-
-class TitleFilter(FilterSet):
-    genre = CharFilter(field_name='genre__slug')
-    category = CharFilter(field_name='category__slug')
-
-    class Meta:
-        model = Title
-        fields = ['category', 'genre', 'name', 'year']
-
-
-class TitleViewSet(viewsets.ModelViewSet):
+class TitleViewSet(BanPutHeadOptionsMethodsMixinViewSet):
     queryset = Title.objects.all()
     permission_classes = [IsAdminOrReadOnly]
     filter_backends = [DjangoFilterBackend]
@@ -117,22 +94,6 @@ class TitleViewSet(viewsets.ModelViewSet):
             return TitleCreateSerializer
         return TitleSerializer
 
-    def update(self, request, *args, **kwargs):
-        # Block PUT requests by returning a 405 status
-        if request.method == 'PUT':
-            return Response(
-                {'detail': 'Method Not Allowed'},
-                status=status.HTTP_405_METHOD_NOT_ALLOWED
-            )
-        return super().update(request, *args, **kwargs)
-
-    def partial_update(self, request, *args, **kwargs):
-        if request.user.is_authenticated and request.user.is_admin:
-            return super().partial_update(request, *args, **kwargs)
-        return Response(
-            {'detail': 'Method Not Allowed'},
-            status=status.HTTP_405_METHOD_NOT_ALLOWED
-        )
 
     def get_queryset(self):
         queryset = (
