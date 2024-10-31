@@ -3,6 +3,7 @@ import uuid
 from django.conf import settings
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
+from django.core.exceptions import ValidationError
 from django.db import IntegrityError
 from django.db.models import Avg
 from django_filters.rest_framework import DjangoFilterBackend
@@ -18,10 +19,10 @@ from api.filter import TitleFilter
 from api.permissions import (IsAdmin, IsAdminOrReadOnly,
                              IsUserAdminModeratorOrReadOnly)
 from api.serializers import (CategorySerializer, TokenSerializer,
-                             SignupSerializer, UserEditSerializer,
-                             UserSerializer, GenreSerializer, TitleSerializer,
-                             TitleCreateSerializer, ReviewSerializer,
-                             CommentSerializer)
+                             UserEditSerializer, UserSerializer,
+                             GenreSerializer, TitleSerializer,
+                             TitleCreateSerializer, SignupSerializer,
+                             ReviewSerializer, CommentSerializer)
 from reviews.models import Category, Genre, Title, Review
 from users.models import User
 
@@ -38,16 +39,17 @@ class BaseReviewViewSet(BanPutHeadOptionsMethodsMixinViewSet):
     def get_instance(self, model, pk):
         return get_object_or_404(model, pk=pk)
 
-
-class CategoryViewSet(viewsets.ModelViewSet):
+class CategoryGenreMixinViewSet(viewsets.ModelViewSet):
     http_method_names = ('get', 'post', 'delete')
-    queryset = Category.objects.all().order_by('id')
-    serializer_class = CategorySerializer
-    lookup_field = 'slug'
     permission_classes = [IsAdminOrReadOnly]
     pagination_class = PageNumberPagination
+    lookup_field = 'slug'
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     search_fields = ['name']
+
+class CategoryViewSet(CategoryGenreMixinViewSet):
+    queryset = Category.objects.all().order_by('id')
+    serializer_class = CategorySerializer
 
     def retrieve(self, request, *args, **kwargs):
         # Отключаем доступ к retrieve и возвращаем 405
@@ -57,15 +59,9 @@ class CategoryViewSet(viewsets.ModelViewSet):
         )
 
 
-class GenreViewSet(viewsets.ModelViewSet):
-    http_method_names = ('get', 'post', 'delete')
+class GenreViewSet(CategoryGenreMixinViewSet):
     queryset = Genre.objects.all().order_by('id')
     serializer_class = GenreSerializer
-    permission_classes = [IsAdminOrReadOnly]
-    pagination_class = PageNumberPagination
-    lookup_field = 'slug'
-    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
-    search_fields = ['name']  # Настройка поиска по полю name
 
     def retrieve(self, request, *args, **kwargs):
         slug = kwargs.get('slug')
@@ -83,7 +79,8 @@ class GenreViewSet(viewsets.ModelViewSet):
 
 
 class TitleViewSet(BanPutHeadOptionsMethodsMixinViewSet):
-    queryset = Title.objects.all()
+    queryset = Title.objects.all().annotate(
+        rating=Avg('reviews__score')).order_by('rating')
     permission_classes = [IsAdminOrReadOnly]
     filter_backends = [DjangoFilterBackend]
     filterset_class = TitleFilter
@@ -93,14 +90,6 @@ class TitleViewSet(BanPutHeadOptionsMethodsMixinViewSet):
         if self.action in ['create', 'partial_update']:
             return TitleCreateSerializer
         return TitleSerializer
-
-
-    def get_queryset(self):
-        queryset = (
-            Title.objects.all().annotate(rating=Avg('reviews__score'))
-            .order_by('rating')
-        )
-        return queryset
 
 
 class UserViewSet(BanPutHeadOptionsMethodsMixinViewSet):
@@ -165,9 +154,7 @@ def signup(request):
     serializer = SignupSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
     try:
-        username = serializer.validated_data.get('username')
-        email = serializer.validated_data.get('email')
-        user, _ = User.objects.get_or_create(username=username, email=email)
+        user, _ = User.objects.get_or_create(**serializer.validated_data)
     except IntegrityError:
         return Response(
             settings.LOGIN_OR_EMAIL_ERROR, status.HTTP_400_BAD_REQUEST

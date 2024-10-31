@@ -68,7 +68,10 @@ class SignupSerializer(serializers.Serializer):
         required=True,
         validators=(username_validator,),
     )
-    email = EmailField(max_length=settings.EMAIL_LIMIT, required=True)
+    email = EmailField(
+        max_length=settings.EMAIL_LIMIT,
+        required=True
+    )
 
 
 class TokenSerializer(serializers.Serializer):
