@@ -27,8 +27,6 @@ from reviews.models import Category, Genre, Title, Review
 from users.models import User
 
 
-
-
 class BanPutHeadOptionsMethodsMixinViewSet(viewsets.ModelViewSet):
     http_method_names = ('get', 'patch', 'post', 'delete')
 
