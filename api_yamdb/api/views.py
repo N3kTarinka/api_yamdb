@@ -35,6 +35,7 @@ class BaseReviewViewSet(BanPutHeadOptionsMethodsMixinViewSet):
     def get_instance(self, model, pk):
         return get_object_or_404(model, pk=pk)
 
+
 class CategoryGenreMixinViewSet(viewsets.ModelViewSet):
     http_method_names = ('get', 'post', 'delete')
     permission_classes = [IsAdminOrReadOnly]
@@ -43,35 +44,21 @@ class CategoryGenreMixinViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     search_fields = ['name']
 
-class CategoryViewSet(CategoryGenreMixinViewSet):
-    queryset = Category.objects.all().order_by('id')
-    serializer_class = CategorySerializer
-
     def retrieve(self, request, *args, **kwargs):
-        # Отключаем доступ к retrieve и возвращаем 405
         return Response(
             {'detail': 'Method Not Allowed'},
             status=status.HTTP_405_METHOD_NOT_ALLOWED
         )
 
 
+class CategoryViewSet(CategoryGenreMixinViewSet):
+    queryset = Category.objects.all().order_by('id')
+    serializer_class = CategorySerializer
+
+
 class GenreViewSet(CategoryGenreMixinViewSet):
     queryset = Genre.objects.all().order_by('id')
     serializer_class = GenreSerializer
-
-    def retrieve(self, request, *args, **kwargs):
-        slug = kwargs.get('slug')
-        if not Genre.objects.filter(slug=slug).exists():
-            return Response(
-                {'detail': 'Method Not Allowed'},
-                status=status.HTTP_405_METHOD_NOT_ALLOWED
-            )
-        return super().retrieve(request, *args, **kwargs)
-
-    def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
-        self.perform_destroy(instance)
-        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class TitleViewSet(BanPutHeadOptionsMethodsMixinViewSet):
