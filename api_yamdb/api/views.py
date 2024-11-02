@@ -3,8 +3,6 @@ import uuid
 from django.conf import settings
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
-from django.core.exceptions import ValidationError
-from django.db import IntegrityError
 from django.db.models import Avg
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, status, viewsets
@@ -151,12 +149,13 @@ class CommentViewSet(BaseReviewViewSet):
 def signup(request):
     serializer = SignupSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
-    try:
-        user, _ = User.objects.get_or_create(**serializer.validated_data)
-    except IntegrityError:
-        return Response(
-            settings.LOGIN_OR_EMAIL_ERROR, status.HTTP_400_BAD_REQUEST
-        )
+    username = serializer.data.get('username')
+    email = serializer.data.get('email')
+    if serializer.check_user_exists(username, email):
+        user = User(username=username, email=email)
+    else:
+        user = User(username=username, email=email)
+        user.save()
     confirmation_code = str(uuid.uuid4())
     send_mail(
         subject='Регистрация в проекте YaMDb',

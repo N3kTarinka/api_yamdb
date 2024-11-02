@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.shortcuts import get_object_or_404
+
 from rest_framework import serializers
 from rest_framework.fields import CharField, EmailField
 
@@ -72,6 +73,27 @@ class SignupSerializer(serializers.Serializer):
         max_length=settings.EMAIL_LIMIT,
         required=True
     )
+
+    def validate(self, data):
+        username = data.get('username')
+        email = data.get('email')
+        if User.objects.filter(username=username, email=email).exists():
+            return data
+        if User.objects.filter(username=username).exists():
+            raise serializers.ValidationError(
+                {'username': 'Имя пользователя уже занято.'})
+        if User.objects.filter(email=email).exists():
+            raise serializers.ValidationError(
+                {'email': 'Этот адрес электронной почты уже используется.'})
+        return data
+
+    def check_user_exists(self, username, email):
+        # Проверка существования пользователя
+        user = User.objects.filter(username=username, email=email).exists()
+        if user:
+            return True
+        else:
+            return False
 
 
 class TokenSerializer(serializers.Serializer):
