@@ -136,8 +136,8 @@ class CommentViewSet(BaseReviewViewSet):
 def signup(request):
     serializer = SignupSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
-    username = serializer.data.get('username')
-    email = serializer.data.get('email')
+    username = serializer.validated_data['username']
+    email = serializer.validated_data['email']
     if serializer.check_user_exists(username, email):
         user = User(username=username, email=email)
     else:

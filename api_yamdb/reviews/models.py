@@ -6,7 +6,7 @@ from users.models import User
 from .validators import validate_year
 
 
-class BaseModel(models.Model):
+class BaseReviewCommentModel(models.Model):
     text = models.TextField(verbose_name='Текст')
     author = models.ForeignKey(
         User,
@@ -27,7 +27,7 @@ class BaseModel(models.Model):
         return self.text[:settings.SNIPPET_LENGTH]
 
 
-class BaseCategoryModel(models.Model):
+class BaseCategoryGenreModel(models.Model):
     name = models.CharField(max_length=256)
     slug = models.SlugField(unique=True)
 
@@ -38,13 +38,13 @@ class BaseCategoryModel(models.Model):
         return self.name
 
 
-class Category(BaseCategoryModel):
+class Category(BaseCategoryGenreModel):
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
 
 
-class Genre(BaseCategoryModel):
+class Genre(BaseCategoryGenreModel):
     class Meta:
         verbose_name = 'Жанр'
         verbose_name_plural = 'Жанры'
@@ -74,7 +74,7 @@ class Title(models.Model):
         verbose_name_plural = 'Произведения'
 
 
-class Review(BaseModel):
+class Review(BaseReviewCommentModel):
     title = models.ForeignKey(
         Title,
         on_delete=models.CASCADE,
@@ -99,7 +99,7 @@ class Review(BaseModel):
         ordering = ('-pub_date',)
 
 
-class Comment(BaseModel):
+class Comment(BaseReviewCommentModel):
     review = models.ForeignKey(
         Review, on_delete=models.CASCADE,
         verbose_name='Отзыв', related_name='comments'

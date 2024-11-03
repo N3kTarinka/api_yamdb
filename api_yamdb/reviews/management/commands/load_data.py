@@ -1,6 +1,7 @@
 import csv
 
 from django.core.management.base import BaseCommand
+
 from reviews.models import Category, Genre, Title
 
 
@@ -8,7 +9,7 @@ class Command(BaseCommand):
     help = 'Загрузка данных из CSV файлов в базу данных'
 
     def handle(self, *args, **kwargs):
-        # Загрузка категорий
+        """Загрузка категорий."""
         with open('static/data/category.csv', encoding='utf-8') as file:
             reader = csv.DictReader(file)
             for row in reader:
@@ -19,7 +20,7 @@ class Command(BaseCommand):
                 )
         self.stdout.write(self.style.SUCCESS('category.csv загружены.'))
 
-        # Загрузка жанров
+        """Загрузка жанров."""
         with open('static/data/genre.csv', encoding='utf-8') as file:
             reader = csv.DictReader(file)
             for row in reader:
@@ -30,7 +31,7 @@ class Command(BaseCommand):
                 )
         self.stdout.write(self.style.SUCCESS('genre.csv загружены'))
 
-        # Загрузка произведений
+        """Загрузка произведений."""
         with open('static/data/titles.csv', encoding='utf-8') as file:
             reader = csv.DictReader(file)
             for row in reader:

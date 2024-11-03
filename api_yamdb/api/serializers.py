@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-
 from rest_framework import serializers
 from rest_framework.fields import CharField, EmailField
 
@@ -88,12 +87,8 @@ class SignupSerializer(serializers.Serializer):
         return data
 
     def check_user_exists(self, username, email):
-        # Проверка существования пользователя
-        user = User.objects.filter(username=username, email=email).exists()
-        if user:
-            return True
-        else:
-            return False
+        """Проверка существования пользователя."""
+        return User.objects.filter(username=username, email=email).exists()
 
 
 class TokenSerializer(serializers.Serializer):
