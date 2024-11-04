@@ -136,13 +136,7 @@ class CommentViewSet(BaseReviewViewSet):
 def signup(request):
     serializer = SignupSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
-    username = serializer.validated_data['username']
-    email = serializer.validated_data['email']
-    if serializer.check_user_exists(username, email):
-        user = User(username=username, email=email)
-    else:
-        user = User(username=username, email=email)
-        user.save()
+    user, _ = User.objects.get_or_create(**serializer.validated_data)
     confirmation_code = str(uuid.uuid4())
     send_mail(
         subject='Регистрация в проекте YaMDb',

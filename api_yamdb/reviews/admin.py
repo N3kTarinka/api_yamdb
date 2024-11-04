@@ -23,7 +23,7 @@ class TitleAdmin(admin.ModelAdmin):
         return qs.prefetch_related('genre')
 
     def get_genre(self, obj):
-        return ", ".join([str(_) for _ in obj.genre.all()])
+        return ", ".join(map(str, obj.genre.values_list('name', flat=True)))
 
 
 @admin.register(Category)

@@ -86,10 +86,6 @@ class SignupSerializer(serializers.Serializer):
                 {'email': 'Этот адрес электронной почты уже используется.'})
         return data
 
-    def check_user_exists(self, username, email):
-        """Проверка существования пользователя."""
-        return User.objects.filter(username=username, email=email).exists()
-
 
 class TokenSerializer(serializers.Serializer):
     username = CharField(
